@@ -46,9 +46,10 @@ const Hero = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 animate-bounce-in">
                 <div className="text-3xl mb-2">📅</div>
-                <p className="font-semibold">Inicio</p>
-                <p className="text-accent">4 Sept 2025</p>
-                <p className="text-sm mt-1">📍 27 de febrero 1718</p>
+                <p className="font-semibold">Inicio: 4 de septiembre 2025</p>
+                <p className="text-accent">Todos los jueves 19-20:30hs</p>
+                <p className="text-sm mt-2">📍 Modalidad: Presencial</p>
+                <p className="text-sm">27 de febrero 1718</p>
                 <p className="text-sm">Rosario - Santa Fe</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 animate-bounce-in" style={{
