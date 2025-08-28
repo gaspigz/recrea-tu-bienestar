@@ -1,13 +1,12 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-wellness.jpg";
-
 const Hero = () => {
   const scrollToRegistration = () => {
-    document.getElementById('registration')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('registration')?.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
-
-  return (
-    <>
+  return <>
       {/* Gift Banner */}
       <div className="bg-success text-success-foreground px-4 py-3 text-center font-semibold animate-fade-in">
         <span className="text-lg">🎁</span> ¡Inscríbete esta semana y recibe tu primera clase GRATIS!
@@ -17,11 +16,7 @@ const Hero = () => {
       <section className="relative min-h-screen flex items-center gradient-hero overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src={heroImage} 
-            alt="Personas disfrutando de actividades de bienestar" 
-            className="w-full h-full object-cover opacity-20"
-          />
+          <img src={heroImage} alt="Personas disfrutando de actividades de bienestar" className="w-full h-full object-cover opacity-20" />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/80"></div>
         </div>
 
@@ -33,24 +28,17 @@ const Hero = () => {
             </h1>
             
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
-              Un taller único que combina <strong>creatividad</strong>, <strong>risoterapia</strong> y <strong>coaching ontológico</strong> 
+              Un taller único que combina <strong> fomenta el buen humor, la conexión y el alivio del estrés a través de la risa y el juego, practicas y dinamicas de relajacion , desde la observacion consciente , aprendizaje y liderazgo para el autoconocimiento y cambio vital.</strong>, <strong>risoterapia</strong> y <strong>coaching ontológico</strong> 
               para transformar tu relación con el estrés diario y garantizar tu bienestar integral
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-              <Button 
-                size="lg" 
-                className="bg-white text-primary hover:bg-accent hover:text-primary-foreground transition-smooth shadow-soft text-lg px-8 py-4"
-                onClick={scrollToRegistration}
-              >
+              <Button size="lg" className="bg-white text-primary hover:bg-accent hover:text-primary-foreground transition-smooth shadow-soft text-lg px-8 py-4" onClick={scrollToRegistration}>
                 Inscribirme Ahora
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="border-white text-white hover:bg-white hover:text-primary transition-smooth text-lg px-8 py-4"
-                onClick={() => document.getElementById('benefits')?.scrollIntoView({ behavior: 'smooth' })}
-              >
+              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary transition-smooth text-lg px-8 py-4" onClick={() => document.getElementById('benefits')?.scrollIntoView({
+              behavior: 'smooth'
+            })}>
                 Conocer Más
               </Button>
             </div>
@@ -62,12 +50,16 @@ const Hero = () => {
                 <p className="font-semibold">Inicio</p>
                 <p className="text-accent">4 Sept 2025</p>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 animate-bounce-in" style={{ animationDelay: '0.1s' }}>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 animate-bounce-in" style={{
+              animationDelay: '0.1s'
+            }}>
                 <div className="text-3xl mb-2">⏰</div>
                 <p className="font-semibold">Horario</p>
                 <p className="text-accent">Miércoles 19-20:30</p>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 animate-bounce-in" style={{ animationDelay: '0.2s' }}>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 animate-bounce-in" style={{
+              animationDelay: '0.2s'
+            }}>
                 <div className="text-3xl mb-2">👥</div>
                 <p className="font-semibold">Modalidad</p>
                 <p className="text-accent">Presencial</p>
@@ -78,10 +70,10 @@ const Hero = () => {
 
         {/* Decorative Elements */}
         <div className="absolute top-20 left-10 w-20 h-20 bg-accent/20 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-primary-glow/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 bg-primary-glow/20 rounded-full blur-xl animate-pulse" style={{
+        animationDelay: '1s'
+      }}></div>
       </section>
-    </>
-  );
+    </>;
 };
-
 export default Hero;
