@@ -48,6 +48,8 @@ const Hero = () => {
                 <div className="text-3xl mb-2">📅</div>
                 <p className="font-semibold">Inicio</p>
                 <p className="text-accent">4 Sept 2025</p>
+                <p className="text-sm mt-1">📍 27 de febrero 1718</p>
+                <p className="text-sm">Rosario - Santa Fe</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 animate-bounce-in" style={{
               animationDelay: '0.1s'
