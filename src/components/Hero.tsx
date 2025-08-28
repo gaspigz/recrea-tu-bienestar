@@ -45,27 +45,18 @@ const Hero = () => {
             {/* Key Info */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 animate-bounce-in">
-                <div className="text-3xl mb-2">📅</div>
-                <p className="font-semibold">Inicio: 4 de septiembre 2025</p>
-                <p className="text-accent">Todos los jueves 19-20:30hs</p>
-                <p className="text-sm mt-2">📍 Modalidad: Presencial</p>
-                <p className="text-sm">27 de febrero 1718</p>
-                <p className="text-sm">Rosario - Santa Fe</p>
+                
+                <p className="font-semibold">📆 Inicio: jueves 4 de septiembre de 2025 
+🏛️ Modalidad: Presencial 
+🕖 Horario: Todos los jueves, de 19:00 a 20:30 hs 
+📍 Lugar: 27 de Febrero 1718, Rosario, Santa Fe</p>
+                
+                
+                
+                
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 animate-bounce-in" style={{
-              animationDelay: '0.1s'
-            }}>
-                <div className="text-3xl mb-2">⏰</div>
-                <p className="font-semibold">Horario</p>
-                <p className="text-accent">Miércoles 19-20:30</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 animate-bounce-in" style={{
-              animationDelay: '0.2s'
-            }}>
-                <div className="text-3xl mb-2">👥</div>
-                <p className="font-semibold">Modalidad</p>
-                <p className="text-accent">Presencial</p>
-              </div>
+              
+              
             </div>
           </div>
         </div>
