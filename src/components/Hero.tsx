@@ -28,7 +28,7 @@ const Hero = () => {
             </h1>
             
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
-              Un taller único que combina <strong>creatividad</strong>, fomenta el buen humor, la conexión y el alivio del estrés a través de la risa y el juego, practicas y dinamicas de relajacion, desde la observacion consciente, aprendizaje y liderazgo para el autoconocimiento y cambio vital para transformar tu relación con el estrés diario y garantizar tu bienestar integral.
+              Un taller único que combina <strong>creatividad</strong>, <strong>buen humor</strong>, <strong>conexión</strong> y <strong>alivio del estrés</strong> a través de la risa y el juego. Incluye prácticas y dinámicas de relajación, observación consciente y aprendizaje vivencial. Un espacio para ejercitar el liderazgo personal, el autoconocimiento y un cambio vital que transformará tu relación con el estrés diario, garantizando tu bienestar integral.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
