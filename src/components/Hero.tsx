@@ -43,21 +43,7 @@ const Hero = () => {
             </div>
 
             {/* Key Info */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 animate-bounce-in">
-                
-                <p className="font-semibold">📆 Inicio: jueves 4 de septiembre de 2025 
-🏛️ Modalidad: Presencial 
-🕖 Horario: Todos los jueves, de 19:00 a 20:30 hs 
-📍 Lugar: 27 de Febrero 1718, Rosario, Santa Fe</p>
-                
-                
-                
-                
-              </div>
-              
-              
-            </div>
+            
           </div>
         </div>
 
