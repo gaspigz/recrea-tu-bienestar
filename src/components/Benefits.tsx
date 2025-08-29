@@ -1,8 +1,8 @@
 const Benefits = () => {
   const benefits = [{
     icon: "🧠",
-    title: "Coaching Ontológico",
-    description: "Basado en las enseñanzas de Rafael Echeverría, transformarás tus conversaciones internas para liderar con efectividad tu vida y alinearte con tu propósito.",
+    title: "Liderazgo Consciente",
+    description: "Transformarás tus conversaciones internas para liderar con efectividad tu vida y alinearte con tu propósito.",
     color: "primary"
   }, {
     icon: "😄",
