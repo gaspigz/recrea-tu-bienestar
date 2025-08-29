@@ -20,7 +20,7 @@ const WorkshopDetails = () => {
     },
     {
       icon: "🏢",
-      title: "Modalidad",
+      title: "Lugar",
       value: "Presencial",
       description: "Ambiente seguro y colaborativo"
     },
