@@ -6,12 +6,12 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-bold mb-2">Recréate tu Bienestar</h3>
             <p className="text-background/80 max-w-2xl mx-auto">
-              Transformando vidas a través de la creatividad, la risa y el coaching ontológico
+              Transformando vidas a través de la creatividad, la risa y el liderazgo consciente
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div>
+            {/*<div>
               <h4 className="font-bold text-lg mb-3">Fundamentos Científicos</h4>
               <ul className="space-y-2 text-background/80 text-sm">
                 <li>Rafael Echeverría - Coaching Ontológico</li>
@@ -19,9 +19,9 @@ const Footer = () => {
                 <li>Humberto Maturana - Biología del Amor</li>
                 <li>Psicología Positiva</li>
               </ul>
-            </div>
+            </div>*/}
 
-            <div>
+           {/*} <div>
               <h4 className="font-bold text-lg mb-3">Certificaciones</h4>
               <ul className="space-y-2 text-background/80 text-sm">
                 <li>Avalado por AACOP</li>
@@ -29,15 +29,15 @@ const Footer = () => {
                 <li>Técnicas Validadas</li>
                 <li>Metodología Científica</li>
               </ul>
-            </div>
+            </div>*/}
 
             <div>
               <h4 className="font-bold text-lg mb-3">Contacto</h4>
               <ul className="space-y-2 text-background/80 text-sm">
-                <li>📧 info@recreatetubienestar.com</li>
-                <li>📱 WhatsApp: +54 9 11 1234-5678</li>
-                <li>📍 Buenos Aires, Argentina</li>
-                <li>🕒 Miércoles 19:00-20:30</li>
+                <li>📧 espaciorecreartexxi@gmail.com</li>
+                <li>📱 WhatsApp: +54 9 3412 607878</li>
+                <li>📍 Rosario, Santa Fe, Argentina</li>
+                <li>🕒 Jueves 19:00-21:00 hs. </li>
               </ul>
             </div>
           </div>
@@ -47,7 +47,7 @@ const Footer = () => {
               &copy; {new Date().getFullYear()} Recréate tu Bienestar. Todos los derechos reservados.
             </p>
             <p className="text-background/60 text-xs mt-2">
-              Taller de bienestar integral basado en metodologías científicas de crecimiento personal
+              Taller de bienestar integral basado en metodologías de crecimiento personal
             </p>
           </div>
         </div>

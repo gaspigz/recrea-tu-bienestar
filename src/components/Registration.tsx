@@ -8,44 +8,71 @@ import { useToast } from "@/hooks/use-toast";
 const Registration = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // 👇 Estado con el campo oculto incluido (website)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     plan: "",
-    message: ""
+    message: "",
+    website: "" // 👈 honeypot anti-spam
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
+  // 👇 Nuevo handleSubmit que envía al endpoint /api/registration
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      const res = await fetch("/api/registration", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error || "No se pudo enviar el formulario.");
+      }
+
       toast({
         title: "¡Inscripción Enviada! 🎉",
-        description: `Gracias ${formData.name}! Te contactaremos pronto al ${formData.email} para confirmar tu participación.`,
+        description: `Gracias ${formData.name}! Te contactaremos a la brevedad.`,
         duration: 6000,
       });
-      
+
+      // limpiar campos
       setFormData({
         name: "",
         email: "",
         phone: "",
         plan: "",
-        message: ""
+        message: "",
+        website: "",
       });
-      
+    } catch (err: any) {
+      toast({
+        title: "Error al enviar",
+        description: err?.message || "Intentá de nuevo en unos minutos.",
+        duration: 6000,
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 2000);
+    }
   };
 
   return (
@@ -64,6 +91,18 @@ const Registration = () => {
         <div className="max-w-2xl mx-auto">
           <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 md:p-12 shadow-glow">
             <form onSubmit={handleSubmit} className="space-y-6">
+
+              {/* 👇 Campo oculto anti-bots */}
+              <input
+                type="text"
+                name="website"
+                value={formData.website}
+                onChange={handleInputChange}
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-white font-semibold">

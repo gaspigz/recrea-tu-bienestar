@@ -7,17 +7,17 @@ const Benefits = () => {
   }, {
     icon: "😄",
     title: "Risoterapia",
-    description: "Aplicando técnicas validadas, liberarás tensiones y activarás tu bioquímica de bienestar a través de la risa consciente y el humor terapéutico.",
+    description: "Liberarás tensiones y activarás tu bioquímica de bienestar a través de la risa consciente y el humor terapéutico.",
     color: "secondary"
   }, {
     icon: "🎨",
     title: "Creatividad Expresiva",
-    description: "Inspirados en Jacobo Moreno y el psicodrama, descubrirás nuevas formas de expresión que conectan con tu esencia y potencian tu innovación.",
+    description: "Descubrirás nuevas formas de expresión que conectan con tu esencia y potencian tu innovación.",
     color: "success"
   }, {
     icon: "💝",
     title: "Biología del Amor",
-    description: "Integrando los conceptos de Humberto Maturana, aprenderás a crear espacios de convivencia que nutren tu bienestar emocional y relacional.",
+    description: "Aprenderás a crear espacios de convivencia que nutren tu bienestar emocional y relacional.",
     color: "primary"
   }, {
     icon: "🤝",
@@ -37,7 +37,7 @@ const Benefits = () => {
             Beneficios de nuestro taller
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Combina los mejores enfoques científicos del bienestar humano en una experiencia transformadora
+            Combina los mejores enfoques del bienestar humano en una experiencia transformadora
           </p>
         </div>
 

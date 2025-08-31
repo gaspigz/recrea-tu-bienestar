@@ -9,32 +9,15 @@ const WorkshopDetails = () => {
     {
       icon: "⏰",
       title: "Horario",
-      value: "19:00 - 20:30 hrs",
-      description: "1.5 horas de bienestar puro"
+      value: "19:00 - 21:00 hrs",
+      description: "2 horas de bienestar puro"
     },
-    {
-      icon: "📍",
-      title: "Frecuencia",
-      value: "Todos los Miércoles",
-      description: "Consistencia para el cambio"
-    },
+    
     {
       icon: "🏢",
-      title: "Lugar",
-      value: "Presencial",
+      title: "Lugar: 27 de Febrero 1718 - Rosario - Santa Fe - Argentina",
+      value: "Presencial - TODOS LOS JUEVES",
       description: "Ambiente seguro y colaborativo"
-    },
-    {
-      icon: "👥",
-      title: "Cupo",
-      value: "Limitado",
-      description: "Atención personalizada"
-    },
-    {
-      icon: "🏆",
-      title: "Certificación",
-      value: "Avalado por AACOP",
-      description: "Estándares internacionales"
     }
   ];
 
