@@ -64,6 +64,7 @@ const Registration = () => {
         website: "",
       });
     } catch (err: any) {
+      console.error("Error submitting form:", err);
       toast({
         title: "Error al enviar",
         description: err?.message || "Intentá de nuevo en unos minutos.",
