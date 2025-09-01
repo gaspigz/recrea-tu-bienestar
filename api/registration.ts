@@ -1,4 +1,5 @@
-import emailjs from "@emailjs/nodejs";
+
+const emailjs = require("@emailjs/nodejs");
 
 export default async function handler(req: any, res: any) {
   if (req.method !== "POST") {
@@ -7,18 +8,16 @@ export default async function handler(req: any, res: any) {
 
   const { name, email, phone, plan, message, website } = req.body;
 
-  // 🛡️ Honeypot anti-spam
   if (website && website.trim() !== "") {
     return res.status(400).json({ ok: false, error: "Spam detectado" });
   }
 
-  // 📋 Validación básica
   if (!name || !email || !phone || !plan) {
     return res.status(400).json({ ok: false, error: "Campos obligatorios faltantes" });
   }
 
   try {
-    // 📩 1. Enviar mail de confirmación al usuario
+    // 📩 mail al usuario
     await emailjs.send(
       process.env.EMAILJS_SERVICE_ID!,
       process.env.EMAILJS_TEMPLATE_USER_ID!,
@@ -27,7 +26,7 @@ export default async function handler(req: any, res: any) {
         from_email: email,
         plan,
         whatsapp_link: "https://chat.whatsapp.com/IjGG6twA6T7Am3olLhkvmO",
-        replyTo: email, // ✅ corregido
+        replyTo: email,
       },
       {
         publicKey: process.env.EMAILJS_PUBLIC_KEY!,
@@ -35,7 +34,7 @@ export default async function handler(req: any, res: any) {
       }
     );
 
-    // 📩 2. Enviar notificación interna a tu casilla
+    // 📩 mail a vos
     await emailjs.send(
       process.env.EMAILJS_SERVICE_ID!,
       process.env.EMAILJS_TEMPLATE_ADMIN_ID!,
@@ -46,7 +45,7 @@ export default async function handler(req: any, res: any) {
         plan,
         message,
         to_email: "espaciorecreartexxi@gmail.com",
-        replyTo: email, // ✅ corregido
+        replyTo: email,
       },
       {
         publicKey: process.env.EMAILJS_PUBLIC_KEY!,
