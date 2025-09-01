@@ -1,6 +1,6 @@
-import nodemailer from 'nodemailer';
+import nodemailer from "nodemailer";
 
-export default async function handler(req: any, res: any) {
+export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ ok: false, error: "Método no permitido" });
   }
@@ -12,18 +12,17 @@ export default async function handler(req: any, res: any) {
     return res.status(400).json({ ok: false, error: "Spam detectado" });
   }
 
-  // Validación de campos obligatorios
   if (!name || !email || !phone || !plan) {
     return res.status(400).json({ ok: false, error: "Campos obligatorios faltantes" });
   }
 
   try {
-    // Configurar el transportador de nodemailer
-    const transporter = nodemailer.createTransporter({
-      service: 'gmail', // o tu proveedor de email
+    // Transportador correcto
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER, // tu email
-        pass: process.env.EMAIL_PASS, // tu contraseña de aplicación
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
@@ -31,7 +30,7 @@ export default async function handler(req: any, res: any) {
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: email,
-      subject: '¡Gracias por tu inscripción! - Espacio Recrearte',
+      subject: "¡Gracias por tu inscripción! - Espacio Recrearte",
       html: `
         <div style="font-family: Arial, sans-serif; background: #f9f9f9; padding: 20px; color: #333;">
           <div style="max-width: 600px; margin: auto; background: #ffffff; border-radius: 12px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
@@ -58,24 +57,21 @@ export default async function handler(req: any, res: any) {
       `,
     });
 
-    // Email al administrador
+    // Email al admin
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
-      to: 'espaciorecreartexxi@gmail.com',
-      subject: 'Nueva Inscripción al Taller - Espacio Recrearte',
+      to: "espaciorecreartexxi@gmail.com",
+      subject: "Nueva Inscripción al Taller - Espacio Recrearte",
       html: `
         <div style="font-family: Arial, sans-serif; background: #f9f9f9; padding: 20px; color: #333;">
           <div style="max-width: 600px; margin: auto; background: #ffffff; border-radius: 12px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
             <h2 style="color: #e63946; text-align: center;">🚀 Nueva inscripción recibida</h2>
-            <p style="font-size: 16px; line-height: 1.6;">
-              Tenés una nueva inscripción al taller:
-            </p>
             <ul style="list-style: none; padding: 0; font-size: 16px; line-height: 1.8;">
               <li><strong>📌 Nombre:</strong> ${name}</li>
               <li><strong>📧 Email:</strong> ${email}</li>
               <li><strong>📱 Teléfono:</strong> ${phone}</li>
               <li><strong>💳 Plan elegido:</strong> ${plan}</li>
-              <li><strong>📝 Mensaje:</strong> ${message || 'Sin mensaje'}</li>
+              <li><strong>📝 Mensaje:</strong> ${message || "Sin mensaje"}</li>
             </ul>
             <p style="margin-top: 20px; font-size: 15px; color: #555;">
               Recordá contactar a la persona cuanto antes 😉
@@ -87,7 +83,7 @@ export default async function handler(req: any, res: any) {
     });
 
     return res.status(200).json({ ok: true });
-  } catch (error: any) {
+  } catch (error) {
     console.error("Email error:", error);
     return res.status(500).json({ ok: false, error: "Error enviando email" });
   }
