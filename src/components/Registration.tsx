@@ -36,12 +36,10 @@ const Registration = () => {
 
   const sendUserEmail = async () => {
     const templateParams = {
-      to_email: formData.email,
-      user_name: formData.name,
-      selected_plan: formData.plan,
-      user_phone: formData.phone,
-      user_message: formData.message || "Sin mensaje",
-      reply_to: formData.email
+      to_email: formData.email, // Email del usuario como destinatario
+      from_name: formData.name,
+      plan: formData.plan,
+      whatsapp_link: "https://chat.whatsapp.com/IjGG6twA6T7Am3olLhkvmO"
     };
 
     return emailjs.send(
@@ -54,13 +52,11 @@ const Registration = () => {
 
   const sendAdminEmail = async () => {
     const templateParams = {
-      to_email: 'espaciorecreartexxi@gmail.com',
       user_name: formData.name,
       user_email: formData.email,
       user_phone: formData.phone,
       selected_plan: formData.plan,
-      user_message: formData.message || "Sin mensaje",
-      reply_to: formData.email
+      user_message: formData.message || "Sin mensaje"
     };
 
     return emailjs.send(
