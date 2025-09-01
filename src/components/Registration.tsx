@@ -1,9 +1,18 @@
 import { useState } from "react";
+import emailjs from '@emailjs/browser';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+
+// Configuración de EmailJS
+const EMAILJS_CONFIG = {
+  SERVICE_ID: 'service_jwcleph',
+  PUBLIC_KEY: 'RihHVyelY6VmZ1AYI',
+  USER_TEMPLATE_ID: 'template_mf9so3c',
+  ADMIN_TEMPLATE_ID: 'template_ghdcsz8'
+};
 
 const Registration = () => {
   const { toast } = useToast();
@@ -17,7 +26,6 @@ const Registration = () => {
     message: "",
     website: "", // Honeypot anti-spam
   });
-  
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -26,26 +34,79 @@ const Registration = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const sendUserEmail = async () => {
+    const templateParams = {
+      to_email: formData.email,
+      user_name: formData.name,
+      selected_plan: formData.plan,
+      user_phone: formData.phone,
+      user_message: formData.message || "Sin mensaje",
+      reply_to: formData.email
+    };
+
+    return emailjs.send(
+      EMAILJS_CONFIG.SERVICE_ID,
+      EMAILJS_CONFIG.USER_TEMPLATE_ID,
+      templateParams,
+      EMAILJS_CONFIG.PUBLIC_KEY
+    );
+  };
+
+  const sendAdminEmail = async () => {
+    const templateParams = {
+      to_email: 'espaciorecreartexxi@gmail.com',
+      user_name: formData.name,
+      user_email: formData.email,
+      user_phone: formData.phone,
+      selected_plan: formData.plan,
+      user_message: formData.message || "Sin mensaje",
+      reply_to: formData.email
+    };
+
+    return emailjs.send(
+      EMAILJS_CONFIG.SERVICE_ID,
+      EMAILJS_CONFIG.ADMIN_TEMPLATE_ID,
+      templateParams,
+      EMAILJS_CONFIG.PUBLIC_KEY
+    );
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    try {
-      const res = await fetch("/api/registration", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+    
+    // Honeypot anti-spam
+    if (formData.website && formData.website.trim() !== "") {
+      toast({
+        title: "Error",
+        description: "Spam detectado",
+        duration: 6000,
+        variant: "destructive",
       });
+      return;
+    }
 
-      let data;
-      try {
-        data = await res.json();
-      } catch {
-        data = { ok: res.ok };
-      }
+    // Validación de campos obligatorios
+    if (!formData.name || !formData.email || !formData.phone || !formData.plan) {
+      toast({
+        title: "Error",
+        description: "Por favor completa todos los campos obligatorios",
+        duration: 6000,
+        variant: "destructive",
+      });
+      return;
+    }
 
-      if (!res.ok || !data.ok) {
-        throw new Error(data.error || "No se pudo enviar el formulario.");
-      }
+    setIsSubmitting(true);
+    
+    try {
+      // Inicializar EmailJS si no está inicializado
+      emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+
+      // Enviar ambos emails
+      await Promise.all([
+        sendUserEmail(),
+        sendAdminEmail()
+      ]);
 
       toast({
         title: "¡Inscripción Enviada! 🎉",
@@ -53,6 +114,7 @@ const Registration = () => {
         duration: 6000,
       });
 
+      // Limpiar formulario
       setFormData({
         name: "",
         email: "",
@@ -61,11 +123,12 @@ const Registration = () => {
         message: "",
         website: "",
       });
-    } catch (err: any) {
-      console.error("Error submitting form:", err);
+
+    } catch (error) {
+      console.error("Error enviando emails:", error);
       toast({
         title: "Error al enviar",
-        description: err?.message || "Intentá de nuevo en unos minutos.",
+        description: "No se pudo enviar la inscripción. Intentá de nuevo en unos minutos.",
         duration: 6000,
         variant: "destructive",
       });
