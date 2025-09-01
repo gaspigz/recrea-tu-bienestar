@@ -1,7 +1,18 @@
-import nodemailer from "nodemailer";
+// /api/registration.js - Función serverless de Vercel
+const nodemailer = require("nodemailer");
 
-// Cambiar de export default function a una función nombrada y luego exportarla
-async function handler(req, res) {
+module.exports = async function handler(req, res) {
+  // Configurar CORS
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
+
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
+
   if (req.method !== "POST") {
     return res.status(405).json({ ok: false, error: "Método no permitido" });
   }
@@ -18,8 +29,7 @@ async function handler(req, res) {
   }
 
   try {
-    // Transportador correcto
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
         user: process.env.EMAIL_USER,
@@ -88,7 +98,4 @@ async function handler(req, res) {
     console.error("Email error:", error);
     return res.status(500).json({ ok: false, error: "Error enviando email" });
   }
-}
-
-// Exportar la función para Vercel
-export default handler;
+};
