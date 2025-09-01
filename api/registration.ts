@@ -1,5 +1,4 @@
-
-const emailjs = require("@emailjs/nodejs");
+import emailjs from "@emailjs/nodejs";
 
 export default async function handler(req: any, res: any) {
   if (req.method !== "POST") {
@@ -8,16 +7,18 @@ export default async function handler(req: any, res: any) {
 
   const { name, email, phone, plan, message, website } = req.body;
 
+  // Honeypot anti-spam
   if (website && website.trim() !== "") {
     return res.status(400).json({ ok: false, error: "Spam detectado" });
   }
 
+  // Validación de campos obligatorios
   if (!name || !email || !phone || !plan) {
     return res.status(400).json({ ok: false, error: "Campos obligatorios faltantes" });
   }
 
   try {
-    // 📩 mail al usuario
+    // 📩 Email al usuario
     await emailjs.send(
       process.env.EMAILJS_SERVICE_ID!,
       process.env.EMAILJS_TEMPLATE_USER_ID!,
@@ -34,7 +35,7 @@ export default async function handler(req: any, res: any) {
       }
     );
 
-    // 📩 mail a vos
+    // 📩 Email al administrador
     await emailjs.send(
       process.env.EMAILJS_SERVICE_ID!,
       process.env.EMAILJS_TEMPLATE_ADMIN_ID!,
