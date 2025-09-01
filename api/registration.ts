@@ -1,6 +1,7 @@
 import nodemailer from "nodemailer";
 
-export default async function handler(req, res) {
+// Cambiar de export default function a una función nombrada y luego exportarla
+async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ ok: false, error: "Método no permitido" });
   }
@@ -18,7 +19,7 @@ export default async function handler(req, res) {
 
   try {
     // Transportador correcto
-    const transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransporter({
       service: "gmail",
       auth: {
         user: process.env.EMAIL_USER,
@@ -88,3 +89,6 @@ export default async function handler(req, res) {
     return res.status(500).json({ ok: false, error: "Error enviando email" });
   }
 }
+
+// Exportar la función para Vercel
+export default handler;
