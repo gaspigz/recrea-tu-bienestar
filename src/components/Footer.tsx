@@ -4,7 +4,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="text-center space-y-6">
           <div>
-            <h3 className="text-2xl font-bold mb-2">Recréate tu Bienestar</h3>
+            <h3 className="text-2xl font-bold mb-2">Recreá tu Bienestar</h3>
             <p className="text-background/80 max-w-2xl mx-auto">
               Transformando vidas a través de la creatividad, la risa y el liderazgo consciente
             </p>
@@ -44,7 +44,7 @@ const Footer = () => {
 
           <div className="border-t border-background/20 pt-6">
             <p className="text-background/60 text-sm">
-              &copy; {new Date().getFullYear()} Recréate tu Bienestar. Todos los derechos reservados.
+              &copy; {new Date().getFullYear()} Recreá tu Bienestar. Todos los derechos reservados.
             </p>
             <p className="text-background/60 text-xs mt-2">
               Taller de bienestar integral basado en metodologías de crecimiento personal

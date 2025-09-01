@@ -8,34 +8,27 @@ import { useToast } from "@/hooks/use-toast";
 const Registration = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  // 👇 Estado con el campo oculto incluido (website)
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     plan: "",
     message: "",
-    website: "" // 👈 honeypot anti-spam
+    website: "", // Honeypot anti-spam
   });
+  
 
   const handleInputChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // 👇 Nuevo handleSubmit que envía al endpoint /api/registration
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
     try {
       const res = await fetch("/api/registration", {
         method: "POST",
@@ -43,7 +36,13 @@ const Registration = () => {
         body: JSON.stringify(formData),
       });
 
-      const data = await res.json();
+      let data;
+      try {
+        data = await res.json();
+      } catch {
+        data = { ok: res.ok };
+      }
+
       if (!res.ok || !data.ok) {
         throw new Error(data.error || "No se pudo enviar el formulario.");
       }
@@ -54,7 +53,6 @@ const Registration = () => {
         duration: 6000,
       });
 
-      // limpiar campos
       setFormData({
         name: "",
         email: "",
@@ -91,9 +89,9 @@ const Registration = () => {
 
         <div className="max-w-2xl mx-auto">
           <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 md:p-12 shadow-glow">
+            
+            {/* Formulario de inscripción */}
             <form onSubmit={handleSubmit} className="space-y-6">
-
-              {/* 👇 Campo oculto anti-bots */}
               <input
                 type="text"
                 name="website"
@@ -120,7 +118,6 @@ const Registration = () => {
                     className="bg-white/20 border-white/30 text-white placeholder:text-white/70 focus:border-accent focus:ring-accent"
                   />
                 </div>
-
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-white font-semibold">
                     Correo Electrónico *
@@ -205,7 +202,7 @@ const Registration = () => {
               </Button>
             </form>
 
-            {/* WhatsApp Community */}
+            {/* Botón de WhatsApp */}
             <div className="mt-8 text-center">
               <div className="bg-white/10 rounded-2xl p-6">
                 <h3 className="text-white font-bold text-lg mb-2">
@@ -217,33 +214,19 @@ const Registration = () => {
                 <Button
                   type="button"
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-primary transition-smooth"
-                  onClick={() => window.open('https://wa.me/group_link', '_blank')}
+                  className="border-white text-gray hover:bg-white hover:text-primary transition-smooth"
+                  onClick={() =>
+                    window.open(
+                      "https://chat.whatsapp.com/IjGG6twA6T7Am3olLhkvmO",
+                      "_blank"
+                    )
+                  }
                 >
                   <span className="mr-2">📱</span>
                   Unirse al Grupo
                 </Button>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Additional Info */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <div className="text-center text-white">
-            <div className="text-3xl mb-2">✅</div>
-            <h4 className="font-bold mb-2">Primera Clase Gratis</h4>
-            <p className="text-white/80 text-sm">Conoce el taller sin compromiso</p>
-          </div>
-          <div className="text-center text-white">
-            <div className="text-3xl mb-2">🎁</div>
-            <h4 className="font-bold mb-2">Regalo de Bienvenida</h4>
-            <p className="text-white/80 text-sm">Material especial para comenzar</p>
-          </div>
-          <div className="text-center text-white">
-            <div className="text-3xl mb-2">🔐</div>
-            <h4 className="font-bold mb-2">Garantía de Satisfacción</h4>
-            <p className="text-white/80 text-sm">100% satisfecho o tu dinero de vuelta</p>
           </div>
         </div>
       </div>

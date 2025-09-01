@@ -23,7 +23,7 @@ const Hero = () => {
         <div className="container relative z-10 mx-auto px-4 py-20">
           <div className="max-w-4xl mx-auto text-center text-white animate-slide-up">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              Recréate tu
+              Recreá tu
               <span className="block text-accent">Bienestar</span>
             </h1>
             
