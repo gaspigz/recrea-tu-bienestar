@@ -1,4 +1,5 @@
-/const Footer = () => {
+footer
+const Footer = () => {
   return (
     <footer className="bg-foreground text-background py-12">
       <div className="container mx-auto px-4">
@@ -19,9 +20,9 @@
                 <li>Humberto Maturana - Biología del Amor</li>
                 <li>Psicología Positiva</li>
               </ul>
-            </div>*/  } 
+            </div>*/}
 
-           {/*} <div> 
+           {/*} <div>
               <h4 className="font-bold text-lg mb-3">Certificaciones</h4>
               <ul className="space-y-2 text-background/80 text-sm">
                 <li>Avalado por AACOP</li>
@@ -29,7 +30,7 @@
                 <li>Técnicas Validadas</li>
                 <li>Metodología Científica</li>
               </ul>
-            </div>*/ }
+            </div>*/}
 
             <div>
               <h4 className="font-bold text-lg mb-3">Contacto</h4>
@@ -56,4 +57,4 @@
   );
 };
 
-export default Footer; 
+export default Footer;
