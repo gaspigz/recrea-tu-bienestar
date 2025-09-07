@@ -24,7 +24,7 @@ const Benefits = () => {
     title: "Juegos y Dinámicas",
     description: "Herramientas lúdicas y prácticas basadas en psicología positiva que podrás integrar en tu vida diaria para transformar el estrés en energía creativa.",
     color: "success"
-    ,}
+    },
     {
     icon: "🤝",
     title: "Comunidad de Apoyo",
