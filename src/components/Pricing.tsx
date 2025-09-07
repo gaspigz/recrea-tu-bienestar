@@ -19,8 +19,8 @@ const Pricing = () => {
         "Material de apoyo digital",
         "Grupo de WhatsApp exclusivo",
         "Comunidad de bienestar",
-        "Primera clase GRATIS",
-        "Seguimiento personalizado"
+      /*  "Primera clase GRATIS", */
+    /*    "Seguimiento personalizado" */
       ],
       buttonText: "Inscribirme",
       color: "primary"
@@ -37,8 +37,8 @@ const Pricing = () => {
         "Material de apoyo digital",
         "Grupo de WhatsApp exclusivo",
         "Comunidad de bienestar",
-        "Primera clase GRATIS",
-        "Seguimiento personalizado",
+      /*  "Primera clase GRATIS", */
+     /*   "Seguimiento personalizado", */
         "Actividades especiales para parejas"
       ],
       buttonText: "Inscribirnos",
@@ -56,8 +56,8 @@ const Pricing = () => {
         "Material de apoyo digital",
         "Grupo de WhatsApp exclusivo",
         "Comunidad de bienestar",
-        "Primera clase GRATIS",
-        "Seguimiento personalizado",
+     /*   "Primera clase GRATIS", */
+    /*    "Seguimiento personalizado", */
         "Descuento por pago adelantado"
       ],
       buttonText: "Inscribirme",
@@ -154,30 +154,30 @@ const Pricing = () => {
           ))}
         </div>
 
-        {/* Additional Info */}
-        <div className="mt-16 text-center max-w-4xl mx-auto">
-          <div className="bg-card rounded-3xl p-8 shadow-soft">
-            <h3 className="text-2xl font-bold text-primary mb-4">¿Qué incluye tu inversión?</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-              <div>
-                <h4 className="font-semibold text-lg mb-2">📚 Recursos Incluidos</h4>
-                <ul className="text-muted-foreground space-y-1">
-                  <li>• Workbook digital personalizado</li>
-                  <li>• Videos de técnicas para practicar</li>
-                  <li>• Audios de relajación y meditación</li>
-                  <li>• Herramientas de autocoaching</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold text-lg mb-2">🎁 Beneficios Extra</h4>
-                <ul className="text-muted-foreground space-y-1">
-                  <li>• Primera sesión completamente gratis</li>
-                  <li>• Invitación a eventos especiales</li>
-                  <li>• Descuentos en talleres futuros</li>
-                  <li>• Comunidad online permanente</li>
-                </ul>
-              </div>
-            </div>
+      /*  {/* Additional Info */} */
+      /*  <div className="mt-16 text-center max-w-4xl mx-auto"> */
+        /*  <div className="bg-card rounded-3xl p-8 shadow-soft"> */
+         /*   <h3 className="text-2xl font-bold text-primary mb-4">¿Qué incluye tu inversión?</h3> */
+       /*     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left"> */
+              <div> */
+         /*       <h4 className="font-semibold text-lg mb-2">📚 Recursos Incluidos</h4>
+            /*    <ul className="text-muted-foreground space-y-1"> */
+            /*      <li>• Workbook digital personalizado</li> */
+            /*      <li>• Videos de técnicas para practicar</li> */
+           /*       <li>• Audios de relajación y meditación</li> */
+            /*      <li>• Herramientas de autocoaching</li> */
+            /*    </ul> */
+        /*      </div> */
+          /*    <div> */
+          /*      <h4 className="font-semibold text-lg mb-2">🎁 Beneficios Extra</h4> */
+         /*       <ul className="text-muted-foreground space-y-1"> */ 
+         /*         <li>• Primera sesión completamente gratis</li> */
+         /*         <li>• Invitación a eventos especiales</li> */ 
+         /*         <li>• Descuentos en talleres futuros</li> */
+         /*         <li>• Comunidad online permanente</li> */
+           /*     </ul> */
+        /*      </div> */
+        /*    </div> */
           </div>
         </div>
       </div>
