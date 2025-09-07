@@ -6,8 +6,8 @@ const Benefits = () => {
     color: "primary"
   }, {
     icon: "😄",
-    title: "Risoterapia",
-    description: "Liberarás tensiones y activarás tu bioquímica de bienestar a través de la risa consciente y el humor terapéutico.",
+    title: "Conecta con tu Risa",
+    description: "Espacio lúdico donde liberarás tensiones y activarás tu bioquímica de bienestar a través de la risa consciente y el humor terapéutico.",
     color: "secondary"
   }, {
     icon: "🎨",
