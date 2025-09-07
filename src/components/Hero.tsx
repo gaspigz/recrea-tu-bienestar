@@ -9,7 +9,7 @@ const Hero = () => {
   return <>
       {/* Gift Banner */}
       <div className="bg-success text-success-foreground px-4 py-3 text-center font-semibold animate-fade-in">
-        <span className="text-lg">🎁</span> ¡Inscríbete esta semana y recibe tu primera clase GRATIS!
+        <span className="text-lg">🎁</span> ¡Inscríbete esta semana y recibe un regalo!
       </div>
 
       {/* Hero Section */}
