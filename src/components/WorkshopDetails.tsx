@@ -3,14 +3,14 @@ const WorkshopDetails = () => {
     {
       icon: "📅",
       title: "Fecha de Inicio",
-      value: "Jueves 4 de Septiembre 2025",
+      value: "Jueves 2 de Octubre 2025",
       description: "Comienza tu transformación"
     },
     {
       icon: "⏰",
       title: "Horario",
-      value: "19:00 - 21:00 hrs",
-      description: "2 horas de bienestar puro"
+      value: "19:00 - 20:30 hrs",
+      description: "1 hora y media de bienestar puro"
     },
     
     {
@@ -80,7 +80,7 @@ const WorkshopDetails = () => {
                 2
               </div>
               <h4 className="font-bold text-lg mb-2">Activación</h4>
-              <p className="text-muted-foreground text-sm">Ejercicios de risoterapia y movimiento</p>
+              <p className="text-muted-foreground text-sm">Ejercicios de conexión con tu alegría interior, a través de la risa y el movimiento</p>
             </div>
             
             <div className="text-center">
