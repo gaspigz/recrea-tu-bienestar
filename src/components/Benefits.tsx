@@ -17,7 +17,7 @@ const Benefits = () => {
   }, {
     icon: "💝",
     title: "Biología del Amor",
-    description: "Aprenderás a crear espacios de convivencia que nutren tu bienestar emocional y relacional.",
+    description: "Aprenderás a crear espacios de convivencia que nutren tu bienestar emocional y relacional.el amor es una emoción biológica fundamental para la convivencia, donde se acepta al otro como un legítimo otro en su diferencia, y esta aceptación mutua permite la coordinación de acciones y la supervivencia como especie. El amor es la base de las relaciones sociales, que genera confianza, seguridad y bienestar tanto individual como colectivo. ",
     color: "primary"
   }, {
     icon: "🤝",
