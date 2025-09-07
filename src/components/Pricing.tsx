@@ -63,7 +63,7 @@ const Pricing = () => {
       buttonText: "Inscribirme",
       color: "success"
     }
-  ];
+    ]; 
 
   return (
     <section className="py-20 gradient-warm">
@@ -152,7 +152,7 @@ const Pricing = () => {
               </div>
             </div>
           ))}
-        </div>
+       /* </div> */
 
       /*  {/* Additional Info */} */
       /*  <div className="mt-16 text-center max-w-4xl mx-auto"> */
