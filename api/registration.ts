@@ -66,7 +66,7 @@ module.exports = async function handler(req, res) {
       from: process.env.EMAIL_USER,
       // Usar ARRAY para múltiples destinatarios es más confiable
       to:
-        "mfgiardina@gmail.com"
+        "mfgiardina@gmail.com",
       
       subject: `🚀 Nueva Inscripción: ${name} - ${plan}`,
       html: `
