@@ -35,7 +35,7 @@ const Footer = () => {
               <ul className="space-y-2 text-background/80 text-sm">
                 <li>📧 espaciorecreartexxi@gmail.com</li>
                 <li>📱 WhatsApp: +54 9 3413 128282</li>
-                <li>📍 27 de febreo 1718 - Rosario - Santa Fe - Argentina</li>
+                <li>📍 27 de Febrero 1718 - Rosario - Santa Fe - Argentina</li>
                 <li>🕒 Viernes 18:30-20:30 hs. </li>
                 <li>🕒 Encuentros quincenales </li>
               </ul>
