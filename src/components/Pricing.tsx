@@ -121,7 +121,7 @@ const Pricing = () => {
     </a>
   </div>
 
-
+</div>
 
 
 
