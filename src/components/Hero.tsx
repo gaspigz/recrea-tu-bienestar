@@ -8,9 +8,19 @@ const Hero = () => {
   };
   return <>
       {/* Gift Banner */}
-      <div className="bg-success text-success-foreground px-4 py-3 text-center font-semibold animate-fade-in">
+     {/*} <div className="bg-success text-success-foreground px-4 py-3 text-center font-semibold animate-fade-in">
         <span className="text-lg">🎁</span> ¡Inscríbete esta semana y recibe un regalo!
-      </div>
+      </div>  */}
+
+<div className="bg-success text-success-foreground px-5 py-4 text-center border-b-2 border-emerald-600 animate-pulse-glow shadow-md">
+  <span className="text-2xl mr-2">🎁</span>
+  <span className="text-xl md:text-2xl font-bold uppercase tracking-wide">
+    ¡Promoción Exclusiva!
+  </span>
+  <span className="block text-lg md:text-xl font-extrabold mt-1">
+    Inscríbete antes del <strong className="text-white underline decoration-wavy">20 de abril</strong> y obtén <strong className="text-white underline decoration-wavy">$10.000 de descuento</strong> en tu cuota de abril.
+  </span>
+</div>
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center gradient-hero overflow-hidden">
