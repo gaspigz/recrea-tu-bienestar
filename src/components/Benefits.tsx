@@ -6,8 +6,8 @@ const Benefits = () => {
     color: "primary"
   }, {
     icon: "😄",
-    title: "Risoterapia",
-    description: "Liberarás tensiones y activarás tu bioquímica de bienestar a través de la risa consciente y el humor terapéutico.",
+    title: "Conecta con tu Risa",
+    description: "Espacio lúdico donde liberarás tensiones y activarás tu bioquímica de bienestar a través de la risa consciente y el humor.",
     color: "secondary"
   }, {
     icon: "🎨",
@@ -17,19 +17,20 @@ const Benefits = () => {
   }, {
     icon: "💝",
     title: "Biología del Amor",
-    description: "Aprenderás a crear espacios de convivencia que nutren tu bienestar emocional y relacional.",
+    description: "Aprenderás a crear espacios de convivencia que nutren tu bienestar emocional y relacional, donde el amor es la emoción biológica fundamental para la convivencia. Se acepta al otro como un legítimo otro en su diferencia, y esta aceptación mutua permite la coordinación de acciones y la supervivencia como especie, generando confianza, seguridad y bienestar individual y colectivo. ",
     color: "primary"
-  }, {
-    icon: "🤝",
-    title: "Comunidad de Apoyo",
-    description: "Acceso a un grupo exclusivo de WhatsApp y una comunidad comprometida con el crecimiento personal y el bienestar colectivo.",
-    color: "secondary"
   }, {
     icon: "🎮",
     title: "Juegos y Dinámicas",
     description: "Herramientas lúdicas y prácticas basadas en psicología positiva que podrás integrar en tu vida diaria para transformar el estrés en energía creativa.",
     color: "success"
-  }];
+    },
+    {
+    icon: "🤝",
+    title: "Comunidad de Apoyo",
+    description: "Acceso a un grupo exclusivo de WhatsApp y una comunidad comprometida con el crecimiento personal y el bienestar colectivo.",
+    color: "secondary"
+    }];
   return <section id="benefits" className="py-20 gradient-joy">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
