@@ -106,7 +106,8 @@ const Pricing = () => {
 
 
   {/* 👇 BOTÓN DE DESCARGA PDF 👇 */}
-  <div className="mt-8">
+  <div className="mt-8 flex justify-center w-full"></div>
+  { /*<div className="mt-8"> */}
     <a 
       href="/2026HorariosRecreaTuBienestar.png" 
       download="2026HorariosRecreaTuBienestar.png"
