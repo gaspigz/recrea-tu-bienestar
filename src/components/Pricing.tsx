@@ -10,7 +10,7 @@ const Pricing = () => {
     {
       title: "Individual",
       price: "$60.000",
-      period: "/mes (x 2 encuentros quincenales)",
+      period: "/mes ",
       originalPrice: null,
       discount: null,
       popular: false,
@@ -47,8 +47,8 @@ const Pricing = () => {
     {
       title: "Pago Anual (Financiado en 12 cuotas)",
       price: "$30.000",
-      period: "x cuota/mes",
-      originalPrice: "$60.000",
+      period: "x 12 cuotas/mensuales",
+      originalPrice: null, /*"$60.000",*/
       discount: null, /* "25% OFF", */ 
       popular: false,
       features: [
