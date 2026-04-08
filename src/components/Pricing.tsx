@@ -9,17 +9,17 @@ const Pricing = () => {
   const pricingOptions = [
     {
       title: "Individual",
-      price: "$20.000",
-      period: "/mes",
+      price: "$60.000",
+      period: "/mes (2 encuentros quincenales)",
       originalPrice: null,
       discount: null,
       popular: false,
       features: [
-        "Acceso a todas las sesiones semanales",
+        "Acceso a todas las sesiones quincenales",
         "Material de apoyo digital",
         "Grupo de WhatsApp exclusivo",
         "Comunidad de bienestar",
-        "Primera clase GRATIS",
+        "Primera clase con Precio Promocional",
         "Seguimiento personalizado"
       ],
       buttonText: "Inscribirme",
@@ -27,10 +27,10 @@ const Pricing = () => {
     },
     {
       title: "Promoción Dúo",
-      price: "$10.000",
+      price: "$50.000 por mes",
       period: "/cada uno",
-      originalPrice: "$20.000",
-      discount: "50% OFF",
+      originalPrice: "$60.000",
+      discount: "20% OFF",
       popular: true,
       features: [
         "Acceso para DOS personas",
