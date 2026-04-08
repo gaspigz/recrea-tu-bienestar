@@ -3,20 +3,20 @@ const WorkshopDetails = () => {
     {
       icon: "📅",
       title: "Fecha de Inicio",
-      value: "Jueves 2 de Octubre 2025",
-      description: "Comienza tu transformación"
+      value: "Viernes 24 de Abril 2026",
+      description: "Comienza tu transformación - ¡No te lo pierdas!"
     },
     {
       icon: "⏰",
       title: "Horario",
-      value: "19:00 - 20:30 hrs",
-      description: "1 hora y media de bienestar puro"
+      value: "18:30 - 20:30 hrs",
+      description: "2 horas de bienestar puro"
     },
     
     {
       icon: "🏢",
       title: "Lugar: 27 de Febrero 1718 - Rosario - Santa Fe - Argentina",
-      value: "Presencial - TODOS LOS JUEVES",
+      value: "Presencial - VIERNES QUINCENALES",
       description: "Ambiente seguro y colaborativo"
     }
   ];

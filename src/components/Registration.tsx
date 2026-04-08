@@ -223,9 +223,9 @@ const Registration = () => {
                   className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white focus:border-accent focus:ring-accent focus:outline-none"
                 >
                   <option value="" className="text-gray-800">Selecciona una opción</option>
-                  <option value="individual" className="text-gray-800">Individual - $20.000/mes</option>
-                  <option value="duo" className="text-gray-800">Promoción Dúo - $10.000 cada uno</option>
-                  <option value="adelantado" className="text-gray-800">Pago Adelantado - $15.000/mes</option>
+                  <option value="individual" className="text-gray-800">Individual por mes</option>
+                  <option value="duo" className="text-gray-800">Promoción Dúo por mes>
+                  <option value="adelantado" className="text-gray-800">Pago Anual Financiado en 12 cuotas</option>
                 </select>
               </div>
 
