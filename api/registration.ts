@@ -37,8 +37,8 @@ module.exports = async function handler(req, res) {
       },
     });
 
-    // Email al usuario
-    await transporter.sendMail({
+    // Definimos los dos correos
+    const mailUsuario = {
       from: process.env.EMAIL_USER,
       to: email,
       subject: "¡Gracias por tu inscripción! - Espacio Recrearte",
@@ -51,28 +51,26 @@ module.exports = async function handler(req, res) {
               ¡Estamos felices de que te unas a nuestro taller! 🙌  
               Confirmamos que elegiste el plan: <strong>${plan}</strong>.
             </p>
-            <p style="font-size: 16px; line-height: 1.6;">
-              En breve nos pondremos en contacto contigo para confirmar tu inscripción y enviarte los detalles de pago.
-            </p>
             <div style="text-align: center; margin: 30px 0;">
               <a href="https://chat.whatsapp.com/IjGG6twA6T7Am3olLhkvmO" target="_blank" style="background: #25D366; color: #fff; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 16px; display: inline-block;">
                 👉 Unirme a la Comunidad de WhatsApp
               </a>
             </div>
-            <p style="font-size: 16px; line-height: 1.6;">
-              ¡Nos alegra mucho que seas parte de esta experiencia!  
-            </p>
             <p style="font-weight: bold; color: #6c3eb9;">El equipo de Espacio Recrearte 💜</p>
           </div>
         </div>
       `,
-    });
+    };
 
-    // Email al admin
-    await transporter.sendMail({
+    const mailAdmin = {
       from: process.env.EMAIL_USER,
-      to: "espaciorecreartexxi@gmail.com, aulas21rosario@gmail.com, mfgiardina@gmail.com", 
-      subject: "Nueva Inscripción al Taller - Espacio Recrearte",
+      // Usar ARRAY para múltiples destinatarios es más confiable
+      to: [
+        "espaciorecreartexxi@gmail.com", 
+        "aulas21rosario@gmail.com", 
+        "mfgiardina@gmail.com"
+      ], 
+      subject: `🚀 Nueva Inscripción: ${name} - ${plan}`,
       html: `
         <div style="font-family: Arial, sans-serif; background: #f9f9f9; padding: 20px; color: #333;">
           <div style="max-width: 600px; margin: auto; background: #ffffff; border-radius: 12px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
@@ -84,18 +82,23 @@ module.exports = async function handler(req, res) {
               <li><strong>💳 Plan elegido:</strong> ${plan}</li>
               <li><strong>📝 Mensaje:</strong> ${message || "Sin mensaje"}</li>
             </ul>
-            <p style="margin-top: 20px; font-size: 15px; color: #555;">
-              Recordá contactar a la persona cuanto antes 😉
-            </p>
+            <p style="margin-top: 20px; font-size: 15px; color: #555;">Recordá contactar a la persona cuanto antes 😉</p>
             <p style="font-weight: bold; color: #e63946;">Espacio Recrearte – Notificación automática</p>
           </div>
         </div>
       `,
-    });
+    };
+
+    // Enviamos ambos al mismo tiempo para evitar timeouts en Vercel
+    await Promise.all([
+      transporter.sendMail(mailUsuario),
+      transporter.sendMail(mailAdmin)
+    ]);
 
     return res.status(200).json({ ok: true });
+
   } catch (error) {
     console.error("Email error:", error);
-    return res.status(500).json({ ok: false, error: "Error enviando email" });
+    return res.status(500).json({ ok: false, error: "Error enviando email", detail: error.message });
   }
 };
