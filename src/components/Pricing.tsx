@@ -39,7 +39,9 @@ const Pricing = () => {
         "Comunidad de bienestar",
       /*  "Primera clase GRATIS", */
      /*   "Seguimiento personalizado", */
-        "Actividades especiales para parejas"
+        "Actividades especiales para parejas",
+        
+         "Consultar precio por un encuentro por mes "
       ],
       buttonText: "Inscribirnos",
       color: "secondary"
@@ -52,13 +54,14 @@ const Pricing = () => {
       discount: null, /* "25% OFF", */ 
       popular: false,
       features: [
-        "Acceso a todas los encuentros quincenales",
+        "Acceso a dos encuentros quincenales",
         "Material de apoyo digital",
         "Grupo de WhatsApp exclusivo",
         "Comunidad de bienestar",
        /* "Primera clase GRATIS",
         "Seguimiento personalizado", */
         "Pago anual financiado en 12 cuotas"
+
       ],
       buttonText: "Inscribirme",
       color: "success"
