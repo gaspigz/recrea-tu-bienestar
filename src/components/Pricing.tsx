@@ -28,7 +28,7 @@ const Pricing = () => {
     {
       title: "Promoción Dúo",
       price: "$50.000",
-      period: "por mes/cada uno",
+      period: "cada uno por mes",
       originalPrice: "$60.000",
       discount: "20% OFF",
       popular: true,
