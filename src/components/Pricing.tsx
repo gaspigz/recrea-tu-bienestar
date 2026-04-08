@@ -15,7 +15,7 @@ const Pricing = () => {
       discount: null,
       popular: false,
       features: [
-        "Acceso a todos los encuentros semanales",
+        "Acceso a todos los encuentros quincenales",
         "Material de apoyo digital",
         "Grupo de WhatsApp exclusivo",
         "Comunidad de bienestar",
@@ -45,20 +45,21 @@ const Pricing = () => {
       color: "secondary"
     },
     {
-      title: "Pago Adelantado",
-      price: "$15.000",
-      period: "/mes",
-      originalPrice: "$20.000",
-      discount: "25% OFF",
+      title: "Pago Anual (Financiado en 12 cuotas)",
+      price: "$30.000",
+      period: "x cuota/mes",
+      originalPrice: "$60.000",
+      discount: null, /* "25% OFF", */ 
       popular: false,
       features: [
-        "Acceso a todos los encuentros semanales",
+        "Acceso a todos los encuentros quincenales",
         "Material de apoyo digital",
         "Grupo de WhatsApp exclusivo",
         "Comunidad de bienestar",
+
      /*   "Primera clase GRATIS", */
     /*    "Seguimiento personalizado", */
-        "Descuento por pago adelantado"
+        "Descuento por pago adelantado anual"
       ],
       buttonText: "Inscribirme",
       color: "success"
@@ -70,8 +71,11 @@ const Pricing = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-            Opciones de Participación
+            Calendario y Opciones de Inversión según Participación
           </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            24 de abril; 15 y 29 mayo; 05 y 19 junio; 03 y 24 julio; 07 y 21 agosto; 04 y 18 septiembre; 02 y 16 octubre; 06 y 20 noviembre; 04 y18 diciembre 2026.
+          </p>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Elige la opción que mejor se adapte a ti y comienza tu transformación hacia el bienestar
           </p>
