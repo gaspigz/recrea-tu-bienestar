@@ -51,7 +51,7 @@ const Pricing = () => {
     {
       title: "Pago Anual (Financiado)",
       price: "$30.000",
-      period: "por 12 cuotas",
+      period: "por 12 cuotas - Tarjeta de crédito Visa, Mastercard, American Express",
       originalPrice: null, /*"$60.000",*/
       discount: null, /* "25% OFF", */ 
       popular: false,
