@@ -83,6 +83,17 @@ const Pricing = () => {
   <strong> 06 y 20</strong> noviembre; 
   <strong> 04 y 18</strong> diciembre 2026.
 </p>
+<div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto mt-4">
+  {[
+    { m: "abril", d: "24" }, { m: "mayo", d: "15 y 29" }, { m: "junio", d: "05 y 19" },
+    { m: "julio", d: "03 y 24" }, { m: "agosto", d: "07 y 21" }, { m: "septiembre", d: "04 y 18" },
+    { m: "octubre", d: "02 y 16" }, { m: "noviembre", d: "06 y 20" }, { m: "diciembre", d: "04 y 18" }
+  ].map((fecha, index) => (
+    <span key={index} className="px-3 py-1 bg-slate-100/50 rounded-full text-sm font-medium text-slate-600 border border-slate-200">
+      <strong className="text-slate-900">{fecha.d}</strong> de {fecha.m}
+    </span>
+  ))}
+</div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Elige la opción que mejor se adapte a ti y comienza tu transformación hacia el bienestar
           </p>
