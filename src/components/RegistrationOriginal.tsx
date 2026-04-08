@@ -36,7 +36,7 @@ const Registration = () => {
 
   const sendUserEmail = async () => {
     const templateParams = {
-      to_email: formData.email, 
+      to_email: formData.email, // Email del usuario como destinatario
       from_name: formData.name,
       plan: formData.plan,
       whatsapp_link: "https://chat.whatsapp.com/IjGG6twA6T7Am3olLhkvmO"
@@ -51,8 +51,6 @@ const Registration = () => {
   };
 
   const sendAdminEmail = async () => {
-    // IMPORTANTE: EmailJS envía el mail a la dirección configurada en tu panel
-    // de EmailJS para el 'ADMIN_TEMPLATE_ID'. No se define el destino aquí.
     const templateParams = {
       user_name: formData.name,
       user_email: formData.email,
@@ -72,6 +70,7 @@ const Registration = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Honeypot anti-spam
     if (formData.website && formData.website.trim() !== "") {
       toast({
         title: "Error",
@@ -82,6 +81,7 @@ const Registration = () => {
       return;
     }
 
+    // Validación de campos obligatorios
     if (!formData.name || !formData.email || !formData.phone || !formData.plan) {
       toast({
         title: "Error",
@@ -95,9 +95,10 @@ const Registration = () => {
     setIsSubmitting(true);
     
     try {
+      // Inicializar EmailJS si no está inicializado
       emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
 
-      // Ejecutamos ambos envíos. Si uno falla, saltará al catch.
+      // Enviar ambos emails
       await Promise.all([
         sendUserEmail(),
         sendAdminEmail()
@@ -109,6 +110,7 @@ const Registration = () => {
         duration: 6000,
       });
 
+      // Limpiar formulario
       setFormData({
         name: "",
         email: "",
@@ -119,10 +121,10 @@ const Registration = () => {
       });
 
     } catch (error) {
-      console.error("Error enviando emails via EmailJS:", error);
+      console.error("Error enviando emails:", error);
       toast({
         title: "Error al enviar",
-        description: "No se pudo completar la inscripción. Por favor, intenta por WhatsApp.",
+        description: "No se pudo enviar la inscripción. Intentá de nuevo en unos minutos.",
         duration: 6000,
         variant: "destructive",
       });
@@ -146,6 +148,8 @@ const Registration = () => {
 
         <div className="max-w-2xl mx-auto">
           <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 md:p-12 shadow-glow">
+            
+            {/* Formulario de inscripción */}
             <form onSubmit={handleSubmit} className="space-y-6">
               <input
                 type="text"
@@ -256,6 +260,32 @@ const Registration = () => {
                 )}
               </Button>
             </form>
+
+            {/* Botón de WhatsApp */}
+            <div className="mt-8 text-center">
+              <div className="bg-white/10 rounded-2xl p-6">
+                <h3 className="text-white font-bold text-lg mb-2">
+                  🔗 Únete a Nuestra Comunidad
+                </h3>
+                <p className="text-white/80 mb-4">
+                  Accede ahora a nuestro grupo de WhatsApp exclusivo
+                </p>
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="border-white text-gray hover:bg-white hover:text-primary transition-smooth"
+                  onClick={() =>
+                    window.open(
+                      "https://chat.whatsapp.com/IjGG6twA6T7Am3olLhkvmO",
+                      "_blank"
+                    )
+                  }
+                >
+                  <span className="mr-2">📱</span>
+                  Unirse al Grupo
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
