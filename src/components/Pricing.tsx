@@ -99,16 +99,11 @@ const Pricing = () => {
 
 
 
-<div className="text-center mb-16">
-  <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-    Cronograma 2026 - Elegí tu Forma de Participar
-  </h2>
 
-  {/* ... aquí van las fechas que ya pusimos ... */}
 
-  <p className="text-xl text-muted-foreground max-w-none mx-auto mt-6">
-    Elige la opción que mejor se adapte a ti y comienza tu transformación hacia el bienestar
-  </p>
+
+
+
 
   {/* 👇 BOTÓN DE DESCARGA PDF 👇 */}
   <div className="mt-8">
@@ -124,7 +119,7 @@ const Pricing = () => {
       </Button>
     </a>
   </div>
-</div>
+
 
 
 
