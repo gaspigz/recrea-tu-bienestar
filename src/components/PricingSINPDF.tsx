@@ -97,38 +97,6 @@ const Pricing = () => {
           </p>
         </div>
 
-
-<div className="text-center mb-16">
-  <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-    Cronograma 2026 - Elegí tu Forma de Participar
-  </h2>
-
-  {/* ... aquí van las fechas que ya pusimos ... */}
-
-  <p className="text-xl text-muted-foreground max-w-none mx-auto mt-6">
-    Elige la opción que mejor se adapte a ti y comienza tu transformación hacia el bienestar
-  </p>
-
-  {/* 👇 BOTÓN DE DESCARGA PDF 👇 */}
-  <div className="mt-8">
-    <a 
-      href="/programa-bienestar-2026.pdf" 
-      download="Programa_Bienestar_2026.pdf"
-    >
-      <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white transition-all">
-        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-        </svg>
-        Descargar Programa Completo (PDF)
-      </Button>
-    </a>
-  </div>
-</div>
-
-
-
-
-
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {pricingOptions.map((option, index) => (
             <div 
