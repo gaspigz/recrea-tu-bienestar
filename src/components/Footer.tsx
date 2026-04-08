@@ -32,12 +32,12 @@ const Footer = () => {
             </div>*/}
 
             <div>
-              <h4 className="font-bold text-lg mb-3">Contacto</h4>
+              <h4 className="font-bold text-lg text-center mb-3">Contacto</h4>
               <ul className="space-y-2 text-background/80 text-sm">
                 <li>📧 espaciorecreartexxi@gmail.com</li>
-                <li>📱 WhatsApp: +54 9 3412 607878</li>
+                <li>📱 WhatsApp: +54 9 3413 128282</li>
                 <li>📍 Rosario, Santa Fe, Argentina</li>
-                <li>🕒 Jueves 19:00-21:00 hs. </li>
+                <li>🕒 Viernes 18:30-20:30 hs. </li>
               </ul>
             </div>
           </div>
