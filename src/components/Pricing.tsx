@@ -106,7 +106,7 @@ const Pricing = () => {
 
 
   {/* 👇 BOTÓN DE DESCARGA PDF 👇 */}
-  <div className="mt-8 flex justify-center w-full"></div>
+  <div className="mt-8 flex justify-center w-full">
   { /*<div className="mt-8"> */}
     <a 
       href="/2026HorariosRecreaTuBienestar.png" 
@@ -116,7 +116,7 @@ const Pricing = () => {
         <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
         </svg>
-        Descargar Programa Completo (PNG)
+        Descargar xxx Programa Completo (PNG)
       </Button>
     </a>
   </div>
