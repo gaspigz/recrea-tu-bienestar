@@ -45,9 +45,9 @@ const Pricing = () => {
       color: "secondary"
     },
     {
-      title: "Pago Anual (Financiado en 12 cuotas)",
-      price: "$30.000",
-      period: "x 12 cuotas/mensuales",
+      title: "Pago Anual (Financiado)",
+      price: "$30.000 x 12 meses",
+      period: "cuotas/mensuales",
       originalPrice: null, /*"$60.000",*/
       discount: null, /* "25% OFF", */ 
       popular: false,
@@ -72,9 +72,17 @@ const Pricing = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
             Calendario y Opciones de Inversión según Participación
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            24 de abril; 15 y 29 mayo; 05 y 19 junio; 03 y 24 julio; 07 y 21 agosto; 04 y 18 septiembre; 02 y 16 octubre; 06 y 20 noviembre; 04 y18 diciembre 2026.
-          </p>
+         <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+  <strong>24</strong> de abril; 
+  <strong> 15 y 29</strong> mayo; 
+  <strong> 05 y 19</strong> junio; 
+  <strong> 03 y 24</strong> julio; 
+  <strong> 07 y 21</strong> agosto; 
+  <strong> 04 y 18</strong> septiembre; 
+  <strong> 02 y 16</strong> octubre; 
+  <strong> 06 y 20</strong> noviembre; 
+  <strong> 04 y 18</strong> diciembre 2026.
+</p>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Elige la opción que mejor se adapte a ti y comienza tu transformación hacia el bienestar
           </p>
