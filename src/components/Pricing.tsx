@@ -52,14 +52,13 @@ const Pricing = () => {
       discount: null, /* "25% OFF", */ 
       popular: false,
       features: [
-        "Acceso a todos los encuentros quincenales",
+        "Acceso a todas las sesiones semanales",
         "Material de apoyo digital",
         "Grupo de WhatsApp exclusivo",
         "Comunidad de bienestar",
-
-     /*   "Primera clase GRATIS", */
-    /*    "Seguimiento personalizado", */
-        "Descuento por pago adelantado anual"
+        "Primera clase GRATIS",
+        "Seguimiento personalizado",
+        "Descuento por pago adelantado"
       ],
       buttonText: "Inscribirme",
       color: "success"
