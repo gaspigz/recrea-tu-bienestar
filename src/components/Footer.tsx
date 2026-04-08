@@ -6,7 +6,7 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-bold mb-2">Recreá tu Bienestar</h3>
             <p className="text-background/80 max-w-2xl mx-auto">
-              Transformando vidas a través de la creatividad, la risa y el liderazgo consciente
+              Transformando vidas a través de la creatividad, la risa, los juegos, la respiración y el liderazgo consciente
             </p>
           </div>
 
@@ -35,8 +35,9 @@ const Footer = () => {
               <ul className="space-y-2 text-background/80 text-sm">
                 <li>📧 espaciorecreartexxi@gmail.com</li>
                 <li>📱 WhatsApp: +54 9 3413 128282</li>
-                <li>📍 Rosario, Santa Fe, Argentina</li>
+                <li>📍 27 de febreo 1718 - Rosario - Santa Fe - Argentina</li>
                 <li>🕒 Viernes 18:30-20:30 hs. </li>
+                <li>🕒 Encuentros quincenales </li>
               </ul>
             </div>
        { /*  </div> */}
