@@ -19,8 +19,8 @@ const Pricing = () => {
         "Material de apoyo digital",
         "Grupo de WhatsApp exclusivo",
         "Comunidad de bienestar",
-      /*  "Primera clase GRATIS", */
-    /*    "Seguimiento personalizado" */
+      /* "Primera clase GRATIS", */
+    /* "Seguimiento personalizado" */
      "Consultar precio por un encuentro por mes "
       ],
       observation: "Ideal para quienes buscan una experiencia individual de crecimiento y bienestar",
@@ -39,8 +39,8 @@ const Pricing = () => {
         "Material de apoyo digital",
         "Grupo de WhatsApp exclusivo",
         "Comunidad de bienestar",
-      /*  "Primera clase GRATIS", */
-     /*   "Seguimiento personalizado", */
+      /* "Primera clase GRATIS", */
+     /* "Seguimiento personalizado", */
         "Actividades especiales para parejas",
         
          "Consultar precio por un encuentro por mes "
@@ -67,31 +67,32 @@ const Pricing = () => {
 
       ],
       observation: "Ideal para quienes buscan una experiencia individual de crecimiento y bienestar",
-
       buttonText: "Inscribirme",
       color: "success"
     }
-    ]; 
+  ]; 
 
   return (
     <section className="py-20 gradient-warm">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-Cronograma 2026 - Elegí tu Forma de Participar          </h2>
+            Cronograma 2026 - Elegí tu Forma de Participar
+          </h2>
        
-<div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto mt-4">
-  {[
-    { m: "abril", d: "24" }, { m: "mayo", d: "15 y 29" }, { m: "junio", d: "05 y 19" },
-    { m: "julio", d: "03 y 24" }, { m: "agosto", d: "07 y 21" }, { m: "septiembre", d: "04 y 18" },
-    { m: "octubre", d: "02 y 16" }, { m: "noviembre", d: "06 y 20" }, { m: "diciembre", d: "04 y 18" }
-  ].map((fecha, index) => (
-    <span key={index} className="px-3 py-1 bg-slate-100/50 rounded-full text-sm font-medium text-slate-600 border border-slate-200">
-      <strong className="text-slate-900">{fecha.d}</strong> de {fecha.m}
-    </span>
-  ))}
-</div>
-          <p className="text-xl text-muted-foreground max-w-none  mx-auto">
+          <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto mt-4">
+            {[
+              { m: "abril", d: "24" }, { m: "mayo", d: "15 y 29" }, { m: "junio", d: "05 y 19" },
+              { m: "julio", d: "03 y 24" }, { m: "agosto", d: "07 y 21" }, { m: "septiembre", d: "04 y 18" },
+              { m: "octubre", d: "02 y 16" }, { m: "noviembre", d: "06 y 20" }, { m: "diciembre", d: "04 y 18" }
+            ].map((fecha, index) => (
+              <span key={index} className="px-3 py-1 bg-slate-100/50 rounded-full text-sm font-medium text-slate-600 border border-slate-200">
+                <strong className="text-slate-900">{fecha.d}</strong> de {fecha.m}
+              </span>
+            ))}
+          </div>
+          
+          <p className="text-xl text-muted-foreground max-w-none mx-auto mt-6">
             Elige la opción que mejor se adapte a ti y comienza tu transformación hacia el bienestar
           </p>
         </div>
@@ -136,35 +137,13 @@ Cronograma 2026 - Elegí tu Forma de Participar          </h2>
                     <span className={`text-4xl font-bold ${option.popular ? 'text-white' : `text-${option.color}`}`}>
                       {option.price}
                     </span>
-
-
-
-
-
-
-
-<div className={`p-8 rounded-t-3xl ${option.popular ? 'gradient-hero text-white' : `bg-${option.color}/5`}`}>
-                <h3 className={`text-2xl font-bold mb-4 ${option.popular ? 'text-white' : `text-${option.color}`}`}>
-                  {option.title}
-                </h3>
-                
-                <div className="mb-6">
-                  {option.originalPrice && (
-                    <p className={`text-lg line-through ${option.popular ? 'text-white/70' : 'text-muted-foreground'} mb-1`}>
-                      {option.originalPrice}
-                    </p>
-                  )}
-                  <div className="flex items-baseline">
-                    <span className={`text-4xl font-bold ${option.popular ? 'text-white' : `text-${option.color}`}`}>
-                      {option.price}
-                    </span>
                     <span className={`text-lg ml-1 ${option.popular ? 'text-white/80' : 'text-muted-foreground'}`}>
                       {option.period}
                     </span>
                   </div>
                 </div>
 
-                {/* 👇 AGREGAR ESTE BLOQUE PARA LA OBSERVACIÓN 👇 */}
+                {/* OBSERVACIÓN INTEGRADA */}
                 {option.observation && (
                   <p className={`text-sm italic leading-relaxed border-t pt-4 ${
                     option.popular ? 'border-white/20 text-white/90' : 'border-slate-200 text-muted-foreground'
@@ -172,44 +151,7 @@ Cronograma 2026 - Elegí tu Forma de Participar          </h2>
                     {option.observation}
                   </p>
                 )}
-                {/* 👆 HASTA ACÁ 👆 */}
-
-              </div>
-
-              <div className="p-8">
-                <ul className="space-y-4 mb-8"></ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <span className={`text-lg ml-1 ${option.popular ? 'text-white/80' : 'text-muted-foreground'}`}>
-                      {option.period}
-                    </span>
-                  </div>
-                </div>
+                
               </div>
 
               <div className="p-8">
@@ -241,8 +183,6 @@ Cronograma 2026 - Elegí tu Forma de Participar          </h2>
             </div>
           ))}
         </div>
-
-/**/
       </div>   
     </section>
   );
