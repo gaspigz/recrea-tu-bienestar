@@ -58,7 +58,7 @@ const Pricing = () => {
         "Comunidad de bienestar",
         "Primera clase GRATIS",
         "Seguimiento personalizado",
-        "Descuento por pago adelantado"
+        "Pago anual financiado"
       ],
       buttonText: "Inscribirme",
       color: "success"
