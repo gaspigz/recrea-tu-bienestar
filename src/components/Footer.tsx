@@ -10,8 +10,7 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {/*<div>
+       { /*  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"> */}          {/*<div>
               <h4 className="font-bold text-lg mb-3">Fundamentos Científicos</h4>
               <ul className="space-y-2 text-background/80 text-sm">
                 <li>Rafael Echeverría - Coaching Ontológico</li>
@@ -40,7 +39,7 @@ const Footer = () => {
                 <li>🕒 Viernes 18:30-20:30 hs. </li>
               </ul>
             </div>
-          </div>
+       { /*  </div> */}
 
           <div className="border-t border-background/20 pt-6">
             <p className="text-background/60 text-sm">
