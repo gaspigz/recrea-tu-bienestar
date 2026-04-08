@@ -71,7 +71,7 @@ module.exports = async function handler(req, res) {
     // Email al admin
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
-      to: "espaciorecreartexxi@gmail.com, aulas21rosario@gmail.com", 
+      to: "espaciorecreartexxi@gmail.com, aulas21rosario@gmail.com, mfgiardina@gmail.com", 
       subject: "Nueva Inscripción al Taller - Espacio Recrearte",
       html: `
         <div style="font-family: Arial, sans-serif; background: #f9f9f9; padding: 20px; color: #333;">
