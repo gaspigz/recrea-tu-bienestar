@@ -23,6 +23,7 @@ const Pricing = () => {
     /*    "Seguimiento personalizado" */
      "Consultar precio por un encuentro por mes "
       ],
+      observation: "Ideal para quienes buscan una experiencia individual de crecimiento y bienestar",
       buttonText: "Inscribirme",
       color: "primary"
     },
@@ -34,7 +35,7 @@ const Pricing = () => {
       discount: "20% OFF",
       popular: true,
       features: [
-        "Acceso para <strong>dos personas</strong> a los dos encuentros quincenales",
+        "Acceso para dos personas a los dos encuentros quincenales",
         "Material de apoyo digital",
         "Grupo de WhatsApp exclusivo",
         "Comunidad de bienestar",
