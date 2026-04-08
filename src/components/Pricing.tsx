@@ -21,6 +21,7 @@ const Pricing = () => {
         "Comunidad de bienestar",
       /*  "Primera clase GRATIS", */
     /*    "Seguimiento personalizado" */
+     "Consultar precio por un encuentro por mes "
       ],
       buttonText: "Inscribirme",
       color: "primary"
@@ -33,7 +34,7 @@ const Pricing = () => {
       discount: "20% OFF",
       popular: true,
       features: [
-        "Acceso para DOS personas a los dos encuentros quincenales",
+        "Acceso para <strong>dos personas</strong> a los dos encuentros quincenales",
         "Material de apoyo digital",
         "Grupo de WhatsApp exclusivo",
         "Comunidad de bienestar",
