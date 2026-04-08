@@ -70,19 +70,8 @@ const Pricing = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-            Calendario y Opciones de Inversión según Participación
-          </h2>
-         <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-  <strong>24</strong> de abril; 
-  <strong> 15 y 29</strong> mayo; 
-  <strong> 05 y 19</strong> junio; 
-  <strong> 03 y 24</strong> julio; 
-  <strong> 07 y 21</strong> agosto; 
-  <strong> 04 y 18</strong> septiembre; 
-  <strong> 02 y 16</strong> octubre; 
-  <strong> 06 y 20</strong> noviembre; 
-  <strong> 04 y 18</strong> diciembre 2026.
-</p>
+Cronograma 2026: Elegí tu Forma de Participar          </h2>
+       
 <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto mt-4">
   {[
     { m: "abril", d: "24" }, { m: "mayo", d: "15 y 29" }, { m: "junio", d: "05 y 19" },
