@@ -98,6 +98,7 @@ const Pricing = () => {
         </div>
 
 
+{ /*}
 <div className="text-center mb-16">
   <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
     Cronograma 2026 - Elegí tu Forma de Participar
@@ -105,9 +106,9 @@ const Pricing = () => {
 
   {/* ... aquí van las fechas que ya pusimos ... */}
 
-  <p className="text-xl text-muted-foreground max-w-none mx-auto mt-6">
+  {/* <p className="text-xl text-muted-foreground max-w-none mx-auto mt-6">
     Elige la opción que mejor se adapte a ti y comienza tu transformación hacia el bienestar
-  </p>
+  </p> */}
 
   {/* 👇 BOTÓN DE DESCARGA PDF 👇 */}
   <div className="mt-8">
@@ -123,7 +124,23 @@ const Pricing = () => {
       </Button>
     </a>
   </div>
-</div>
+
+ {/* 👇 BOTÓN DE DESCARGA PDF 👇 */}
+  <div className="mt-8">
+    <a 
+      href="/2026HorariosRecreaTuBienestar.png" 
+      download="2026HorariosRecreaTuBienestar.png"
+    >
+      <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white transition-all">
+        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+        </svg>
+        Descargar Programa Completo (PNG)
+      </Button>
+    </a>
+  </div>
+
+{ /*</div> */}
 
 
 
