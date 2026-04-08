@@ -45,13 +45,14 @@ const Pricing = () => {
         
          "Consultar precio por un encuentro por mes "
       ],
+      observation: "Ideal para quienes buscan una experiencia individual de crecimiento y bienestar",
       buttonText: "Inscribirnos",
       color: "secondary"
     },
     {
       title: "Pago Anual (Financiado)",
       price: "$30.000",
-      period: "por 12 cuotas - Tarjeta de crédito Visa, Mastercard, American Express",
+      period: "por 12 cuotas - Tarjeta de crédito Visa",
       originalPrice: null, /*"$60.000",*/
       discount: null, /* "25% OFF", */ 
       popular: false,
@@ -65,6 +66,8 @@ const Pricing = () => {
         "Pago anual financiado en 12 cuotas"
 
       ],
+      observation: "Ideal para quienes buscan una experiencia individual de crecimiento y bienestar",
+
       buttonText: "Inscribirme",
       color: "success"
     }
@@ -133,6 +136,75 @@ Cronograma 2026 - Elegí tu Forma de Participar          </h2>
                     <span className={`text-4xl font-bold ${option.popular ? 'text-white' : `text-${option.color}`}`}>
                       {option.price}
                     </span>
+
+
+
+
+
+
+
+<div className={`p-8 rounded-t-3xl ${option.popular ? 'gradient-hero text-white' : `bg-${option.color}/5`}`}>
+                <h3 className={`text-2xl font-bold mb-4 ${option.popular ? 'text-white' : `text-${option.color}`}`}>
+                  {option.title}
+                </h3>
+                
+                <div className="mb-6">
+                  {option.originalPrice && (
+                    <p className={`text-lg line-through ${option.popular ? 'text-white/70' : 'text-muted-foreground'} mb-1`}>
+                      {option.originalPrice}
+                    </p>
+                  )}
+                  <div className="flex items-baseline">
+                    <span className={`text-4xl font-bold ${option.popular ? 'text-white' : `text-${option.color}`}`}>
+                      {option.price}
+                    </span>
+                    <span className={`text-lg ml-1 ${option.popular ? 'text-white/80' : 'text-muted-foreground'}`}>
+                      {option.period}
+                    </span>
+                  </div>
+                </div>
+
+                {/* 👇 AGREGAR ESTE BLOQUE PARA LA OBSERVACIÓN 👇 */}
+                {option.observation && (
+                  <p className={`text-sm italic leading-relaxed border-t pt-4 ${
+                    option.popular ? 'border-white/20 text-white/90' : 'border-slate-200 text-muted-foreground'
+                  }`}>
+                    {option.observation}
+                  </p>
+                )}
+                {/* 👆 HASTA ACÁ 👆 */}
+
+              </div>
+
+              <div className="p-8">
+                <ul className="space-y-4 mb-8"></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     <span className={`text-lg ml-1 ${option.popular ? 'text-white/80' : 'text-muted-foreground'}`}>
                       {option.period}
                     </span>
