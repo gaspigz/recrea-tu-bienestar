@@ -52,7 +52,7 @@ const Pricing = () => {
       discount: null, /* "25% OFF", */ 
       popular: false,
       features: [
-        "Acceso a todas las sesiones quincenales",
+        "Acceso a todas los encuentros quincenales",
         "Material de apoyo digital",
         "Grupo de WhatsApp exclusivo",
         "Comunidad de bienestar",
@@ -70,7 +70,7 @@ const Pricing = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-Cronograma 2026: Elegí tu Forma de Participar          </h2>
+Cronograma 2026 - Elegí tu Forma de Participar          </h2>
        
 <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto mt-4">
   {[
@@ -83,7 +83,7 @@ Cronograma 2026: Elegí tu Forma de Participar          </h2>
     </span>
   ))}
 </div>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-none  mx-auto">
             Elige la opción que mejor se adapte a ti y comienza tu transformación hacia el bienestar
           </p>
         </div>
