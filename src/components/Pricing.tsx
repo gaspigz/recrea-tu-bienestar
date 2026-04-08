@@ -15,7 +15,7 @@ const Pricing = () => {
       discount: null,
       popular: false,
       features: [
-        "Acceso a todos los encuentros quincenales",
+        "Acceso a los dos encuentros quincenales",
         "Material de apoyo digital",
         "Grupo de WhatsApp exclusivo",
         "Comunidad de bienestar",
@@ -33,7 +33,7 @@ const Pricing = () => {
       discount: "20% OFF",
       popular: true,
       features: [
-        "Acceso para DOS personas",
+        "Acceso para DOS personas a los dos encuentros quincenales",
         "Material de apoyo digital",
         "Grupo de WhatsApp exclusivo",
         "Comunidad de bienestar",
@@ -54,7 +54,7 @@ const Pricing = () => {
       discount: null, /* "25% OFF", */ 
       popular: false,
       features: [
-        "Acceso a dos encuentros quincenales",
+        "Acceso a dos encuentros quincenales de mayo a diciembre 2026",
         "Material de apoyo digital",
         "Grupo de WhatsApp exclusivo",
         "Comunidad de bienestar",
