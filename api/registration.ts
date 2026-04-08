@@ -41,7 +41,7 @@ module.exports = async function handler(req, res) {
     const mailUsuario = {
       from: process.env.EMAIL_USER,
       to: email,
-      subject: "¡Gracias por tu inscripción! - Espacio Recrearte",
+      subject: "¡Gracias por tu inscripción! - Espacio Recrearte - ",
       html: `
         <div style="font-family: Arial, sans-serif; background: #f9f9f9; padding: 20px; color: #333;">
           <div style="max-width: 600px; margin: auto; background: #ffffff; border-radius: 12px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
