@@ -27,8 +27,8 @@ const Pricing = () => {
     },
     {
       title: "Promoción Dúo",
-      price: "$50.000 por mes",
-      period: "/cada uno",
+      price: "$50.000",
+      period: "por mes/cada uno",
       originalPrice: "$60.000",
       discount: "20% OFF",
       popular: true,
@@ -46,8 +46,8 @@ const Pricing = () => {
     },
     {
       title: "Pago Anual (Financiado)",
-      price: "$30.000 x 12 meses",
-      period: "cuotas/mensuales",
+      price: "$30.000",
+      period: "por 12 cuotas",
       originalPrice: null, /*"$60.000",*/
       discount: null, /* "25% OFF", */ 
       popular: false,
@@ -58,7 +58,7 @@ const Pricing = () => {
         "Comunidad de bienestar",
        /* "Primera clase GRATIS",
         "Seguimiento personalizado", */
-        "Pago anual financiado"
+        "Pago anual financiado en 12 cuotas"
       ],
       buttonText: "Inscribirme",
       color: "success"
