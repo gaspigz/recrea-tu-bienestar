@@ -5,7 +5,7 @@ const Footer = () => {
         <div className="text-center space-y-6">
           <div>
             <h3 className="text-2xl font-bold mb-2">Recreá tu Bienestar</h3>
-            <p className="text-background/80 max-w-2xl mx-auto">
+            <p className="text-background/80 max-w-none mx-auto">
               Transformando vidas a través de la creatividad, la risa, los juegos, la respiración y el liderazgo consciente
             </p>
           </div>
