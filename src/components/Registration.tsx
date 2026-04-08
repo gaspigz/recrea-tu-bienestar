@@ -224,8 +224,8 @@ const Registration = () => {
                 >
                   <option value="" className="text-gray-800">Selecciona una opción</option>
                   <option value="individual" className="text-gray-800">Individual por mes</option>
-                  <option value="duo" className="text-gray-800">Promoción Dúo por mes>
-                  <option value="adelantado" className="text-gray-800">Pago Anual Financiado en 12 cuotas</option>
+                  <option value="duo" className="text-gray-800">Promoción Dúo por mes</option>
+                  <option value="adelantado" className="text-gray-800">Pago Financiado en 12 cuotas</option>
                 </select>
               </div>
 
