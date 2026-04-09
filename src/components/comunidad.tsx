@@ -23,7 +23,7 @@ const Comunidad = () => {
     email: "",
     phone: "",
     message: "",
-    website: "", // Honeypot anti-spam
+    website: "", // Honeypot
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -36,26 +36,26 @@ const Comunidad = () => {
     if (formData.website) return;
     setIsSubmitting(true);
 
-    // MAPEADO SEGÚN TUS CAPTURAS DE EMAILJS
+    // Mapeo exhaustivo para cubrir TODOS los nombres de etiquetas en tus plantillas
     const templateParams = {
-      // 1. Para template_ghdcsz8 (Mail del Admin)
+      // 1. Campos que busca la plantilla de ADMIN (template_ghdcsz8)
+      name: formData.name,      // <--- IMPORTANTE: Tu plantilla usa {{name}}
+      email: formData.email,    // <--- IMPORTANTE: Tu plantilla usa {{email}}
+      phone: formData.phone,    // <--- IMPORTANTE: Tu plantilla usa {{phone}}
+      plan: "Comunidad",        // <--- IMPORTANTE: Tu plantilla usa {{plan}}
+      message: formData.message || "Interés en unirse a la comunidad",
+
+      // 2. Campos que busca la plantilla de USUARIO (template_mf9so3c)
+      to_name: formData.name,   // Tu plantilla usa {{to_name}}
+      to_email: formData.email, // Tu plantilla usa {{to_email}}
+
+      // 3. Extras por compatibilidad con el historial de EmailJS
       from_name: formData.name,
       from_email: formData.email,
-      phone: formData.phone,
-      plan: "Comunidad", 
-      message: formData.message || "Solicitud de ingreso a la comunidad",
-
-      // 2. Para template_mf9so3c (Mail de Bienvenida al Usuario)
-      to_name: formData.name,
-      to_email: formData.email,
-      
-      // 3. Fallbacks (por si acaso)
-      name: formData.name,
-      email: formData.email,
     };
 
     try {
-      // Envío al ADMIN
+      // Envío al Admin (Vos)
       await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID,
         EMAILJS_CONFIG.ADMIN_TEMPLATE_ID,
@@ -63,7 +63,7 @@ const Comunidad = () => {
         EMAILJS_CONFIG.PUBLIC_KEY
       );
 
-      // Envío al USUARIO
+      // Envío al Usuario (Bienvenida)
       await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID,
         EMAILJS_CONFIG.USER_TEMPLATE_ID,
@@ -71,11 +71,11 @@ const Comunidad = () => {
         EMAILJS_CONFIG.PUBLIC_KEY
       );
 
-      toast({ title: "¡Solicitud enviada!", description: "Revisa tu casilla de correo." });
+      toast({ title: "¡Registrado!", description: "Revisa tu mail, te enviamos el acceso." });
       setIsSubmitted(true);
     } catch (error) {
-      console.error("Error:", error);
-      toast({ title: "Error", description: "No se pudo procesar el envío.", variant: "destructive" });
+      console.error("Error EmailJS:", error);
+      toast({ title: "Error", description: "No se pudo enviar el registro.", variant: "destructive" });
     } finally {
       setIsSubmitting(false);
     }
@@ -89,7 +89,6 @@ const Comunidad = () => {
           
           {!isSubmitted ? (
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Honeypot */}
               <input type="text" name="website" value={formData.website} onChange={handleInputChange} className="hidden" />
               
               <div className="space-y-2">
