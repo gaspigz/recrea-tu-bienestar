@@ -23,7 +23,7 @@ const Comunidad = () => {
     email: "",
     phone: "",
     message: "",
-    website: "", 
+    website: "", // Honeypot anti-spam
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -31,41 +31,31 @@ const Comunidad = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  
-  
-
-
-
-
-const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.website) return;
     setIsSubmitting(true);
 
-    // ESTE ES EL SECRETO: Mandamos todas las variables que usan tus dos plantillas
+    // MAPEADO SEGÚN TUS CAPTURAS DE EMAILJS
     const templateParams = {
-      // Para el mail que te llega a VOS (Admin)
-       name: formData.name,
-       to_name: formData.name,
-      to_email: formData.email,
+      // 1. Para template_ghdcsz8 (Mail del Admin)
       from_name: formData.name,
       from_email: formData.email,
       phone: formData.phone,
-      plan: "Comunidad", // Aquí forzamos el nombre del plan
-      message: formData.message || "Interés en unirse a la comunidad",
+      plan: "Comunidad", 
+      message: formData.message || "Solicitud de ingreso a la comunidad",
 
-      // Para el mail que le llega al CLIENTE (Usuario)
-     // name: formData.name,
-     // to_name: formData.name,
-     // to_email: formData.email,
+      // 2. Para template_mf9so3c (Mail de Bienvenida al Usuario)
+      to_name: formData.name,
+      to_email: formData.email,
       
-      // Por si alguna plantilla usa nombres simples
-      // name: formData.name,
+      // 3. Fallbacks (por si acaso)
+      name: formData.name,
       email: formData.email,
     };
 
     try {
-      // 1. Enviar al Admin
+      // Envío al ADMIN
       await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID,
         EMAILJS_CONFIG.ADMIN_TEMPLATE_ID,
@@ -73,7 +63,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         EMAILJS_CONFIG.PUBLIC_KEY
       );
 
-      // 2. Enviar al Usuario
+      // Envío al USUARIO
       await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID,
         EMAILJS_CONFIG.USER_TEMPLATE_ID,
@@ -81,20 +71,15 @@ const handleSubmit = async (e: React.FormEvent) => {
         EMAILJS_CONFIG.PUBLIC_KEY
       );
 
-      toast({ title: "¡Registrado!", description: "Revisa tu mail para entrar al grupo." });
+      toast({ title: "¡Solicitud enviada!", description: "Revisa tu casilla de correo." });
       setIsSubmitted(true);
     } catch (error) {
-      console.error("Error EmailJS:", error);
-      toast({ title: "Error", description: "No se pudo enviar el registro.", variant: "destructive" });
+      console.error("Error:", error);
+      toast({ title: "Error", description: "No se pudo procesar el envío.", variant: "destructive" });
     } finally {
       setIsSubmitting(false);
     }
   };
-
-
-
-
-
 
   return (
     <section id="comunidad" className="py-20 bg-primary/5">
@@ -104,6 +89,7 @@ const handleSubmit = async (e: React.FormEvent) => {
           
           {!isSubmitted ? (
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Honeypot */}
               <input type="text" name="website" value={formData.website} onChange={handleInputChange} className="hidden" />
               
               <div className="space-y-2">
@@ -129,13 +115,13 @@ const handleSubmit = async (e: React.FormEvent) => {
                   name="message" 
                   value={formData.message} 
                   onChange={handleInputChange} 
-                  placeholder="Contanos brevemente..." 
+                  placeholder="Contanos brevemente qué te motiva..." 
                   className="min-h-[100px]"
                 />
               </div>
 
               <Button type="submit" className="w-full h-12 text-lg" disabled={isSubmitting}>
-                {isSubmitting ? "Enviando datos..." : "Obtener acceso al WhatsApp"}
+                {isSubmitting ? "Enviando..." : "Obtener acceso al WhatsApp"}
               </Button>
             </form>
           ) : (
