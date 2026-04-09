@@ -22,7 +22,6 @@ const Registration = () => {
     name: "",
     email: "",
     phone: "",
-    plan: "",
     message: "",
     website: "", // Honeypot anti-spam
   });
@@ -38,8 +37,7 @@ const Registration = () => {
     const templateParams = {
       to_email: formData.email, // Email del usuario como destinatario
       from_name: formData.name,
-      plan: formData.plan,
-      whatsapp_link: "https://chat.whatsapp.com/IjGG6twA6T7Am3olLhkvmO"
+      whatsapp_link: "https://chat.whatsapp.com/HeY10ZbEd348MyFFvydZLz?mode=gi_t"
     };
 
     return emailjs.send(
@@ -55,7 +53,6 @@ const Registration = () => {
       user_name: formData.name,
       user_email: formData.email,
       user_phone: formData.phone,
-      selected_plan: formData.plan,
       user_message: formData.message || "Sin mensaje"
     };
 
@@ -105,8 +102,8 @@ const Registration = () => {
       ]);
 
       toast({
-        title: "¡Inscripción Enviada! 🎉",
-        description: `Gracias ${formData.name}! Te contactaremos a la brevedad.`,
+        title: "¡Ya diste el primer paso! Felicitaciones, eres parte de nuestra comunidad! 🎉",
+        description: `Gracias ${formData.name}! Pronto recibirás noticias nuestras.`,
         duration: 6000,
       });
 
@@ -115,7 +112,6 @@ const Registration = () => {
         name: "",
         email: "",
         phone: "",
-        plan: "",
         message: "",
         website: "",
       });
@@ -124,7 +120,7 @@ const Registration = () => {
       console.error("Error enviando emails:", error);
       toast({
         title: "Error al enviar",
-        description: "No se pudo enviar la inscripción. Intentá de nuevo en unos minutos.",
+        description: "No se pudo dar aviso de tu ingreso a la comunidad. Intentá de nuevo en unos minutos.",
         duration: 6000,
         variant: "destructive",
       });
@@ -138,11 +134,10 @@ const Registration = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Inscríbete Hoy
+            Hoy sé parte de nuestra comunidad 
           </h2>
           <p className="text-xl text-white/90 max-w-3xl mx-auto">
-            Completa el formulario para reservar tu lugar. Te contactaremos a la brevedad 
-            para confirmar tu inscripción y enviarte los detalles de pago.
+            Completa el formulario para sumarte a nuestra comunidad.
           </p>
         </div>
 
@@ -211,25 +206,6 @@ const Registration = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="plan" className="text-white font-semibold">
-                  Plan Elegido *
-                </Label>
-                <select
-                  id="plan"
-                  name="plan"
-                  value={formData.plan}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white focus:border-accent focus:ring-accent focus:outline-none"
-                >
-                  <option value="" className="text-gray-800">Selecciona una opción</option>
-                  <option value="individual" className="text-gray-800">Individual por mes</option>
-                  <option value="duo" className="text-gray-800">Promoción Dúo por mes</option>
-                  <option value="adelantado" className="text-gray-800">Pago Financiado en 12 cuotas</option>
-                </select>
-              </div>
-
-              <div className="space-y-2">
                 <Label htmlFor="message" className="text-white font-semibold">
                   Mensaje (Opcional)
                 </Label>
@@ -256,7 +232,7 @@ const Registration = () => {
                     <span>Enviando...</span>
                   </div>
                 ) : (
-                  "Enviar Inscripción"
+                  "Enviar Subscripción"
                 )}
               </Button>
             </form>
@@ -265,10 +241,10 @@ const Registration = () => {
             <div className="mt-8 text-center">
               <div className="bg-white/10 rounded-2xl p-6">
                 <h3 className="text-white font-bold text-lg mb-2">
-                  🔗 Únete a Nuestra Comunidad !!!
+                  🔗 Ahora el ultimo paso y ya estarás unido a Nuestra Comunidad !!!
                 </h3>
                 <p className="text-white/80 mb-4">
-                  Accede ahora a nuestro grupo de WhatsApp exclusivo
+                  Y accede ahora a nuestro grupo de WhatsApp exclusivo
                 </p>
                 <Button
                   type="button"
@@ -282,7 +258,7 @@ const Registration = () => {
                   }
                 >
                   <span className="mr-2">📱</span>
-                  Unirse al Grupo
+                  Haz clic para ingresar al Grupo
                 </Button>
               </div>
             </div>
@@ -293,4 +269,4 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default comunidad;
