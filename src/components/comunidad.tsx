@@ -32,6 +32,10 @@ const Comunidad = () => {
   };
 
   
+  
+
+
+
 
 const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,6 +45,9 @@ const handleSubmit = async (e: React.FormEvent) => {
     // ESTE ES EL SECRETO: Mandamos todas las variables que usan tus dos plantillas
     const templateParams = {
       // Para el mail que te llega a VOS (Admin)
+       name: formData.name,
+       to_name: formData.name,
+      to_email: formData.email,
       from_name: formData.name,
       from_email: formData.email,
       phone: formData.phone,
@@ -48,11 +55,12 @@ const handleSubmit = async (e: React.FormEvent) => {
       message: formData.message || "Interés en unirse a la comunidad",
 
       // Para el mail que le llega al CLIENTE (Usuario)
-      to_name: formData.name,
-      to_email: formData.email,
+     // name: formData.name,
+     // to_name: formData.name,
+     // to_email: formData.email,
       
       // Por si alguna plantilla usa nombres simples
-      name: formData.name,
+      // name: formData.name,
       email: formData.email,
     };
 
