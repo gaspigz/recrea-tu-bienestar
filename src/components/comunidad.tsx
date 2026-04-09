@@ -39,8 +39,7 @@ const Registration = () => {
       to_email: formData.email, // Email del usuario como destinatario
       from_name: formData.name,
       plan: formData.plan,
-      /*whatsapp_link: "https://chat.whatsapp.com/IjGG6twA6T7Am3olLhkvmO" */
-     whatsapp_link: "https://chat.whatsapp.com/HeY10ZbEd348MyFFvydZLz?mode=gi_t"
+      whatsapp_link: "https://chat.whatsapp.com/IjGG6twA6T7Am3olLhkvmO"
     };
 
     return emailjs.send(
