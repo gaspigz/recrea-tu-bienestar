@@ -125,7 +125,7 @@ const Comunidad = () => {
               </div>
 
               <Button type="submit" className="w-full h-12 text-lg" disabled={isSubmitting}>
-                {isSubmitting ? "Enviando..." : "Obtener acceso al grupo de WhatsApp de nuestra comunidad"}
+                {isSubmitting ? "Enviando..." : "Solicitar Acceso"}
               </Button>
             </form>
           ) : (
