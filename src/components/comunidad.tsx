@@ -31,66 +31,62 @@ const Comunidad = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  
+
+const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.website) return;
     setIsSubmitting(true);
 
-    // TRUCO UNIVERSAL: Enviamos la misma info con varios nombres 
-    // para que coincida con lo que tengas en EmailJS
-    const universalParams = {
-      // Variaciones para el Nombre
-      name: formData.name,
+    // ESTE ES EL SECRETO: Mandamos todas las variables que usan tus dos plantillas
+    const templateParams = {
+      // Para el mail que te llega a VOS (Admin)
       from_name: formData.name,
-      user_name: formData.name,
-      
-      // Variaciones para el Email
-      email: formData.email,
       from_email: formData.email,
-      reply_to: formData.email,
-      
-      // Variaciones para el Teléfono
       phone: formData.phone,
-      whatsapp: formData.phone,
-      
-      // El Plan (Fijo como pediste)
-      plan: "Comunidad",
-      tipo_plan: "Comunidad",
-      
-      // El Mensaje
+      plan: "Comunidad", // Aquí forzamos el nombre del plan
       message: formData.message || "Interés en unirse a la comunidad",
-      user_message: formData.message,
+
+      // Para el mail que le llega al CLIENTE (Usuario)
+      to_name: formData.name,
+      to_email: formData.email,
+      
+      // Por si alguna plantilla usa nombres simples
+      name: formData.name,
+      email: formData.email,
     };
 
     try {
-      // 1. Envío al Admin (Vos)
+      // 1. Enviar al Admin
       await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID,
         EMAILJS_CONFIG.ADMIN_TEMPLATE_ID,
-        universalParams,
+        templateParams,
         EMAILJS_CONFIG.PUBLIC_KEY
       );
 
-      // 2. Envío al Usuario (Bienvenida)
+      // 2. Enviar al Usuario
       await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID,
         EMAILJS_CONFIG.USER_TEMPLATE_ID,
-        {
-          to_name: formData.name,
-          to_email: formData.email,
-        },
+        templateParams,
         EMAILJS_CONFIG.PUBLIC_KEY
       );
 
-      toast({ title: "¡Solicitud enviada!", description: "Datos registrados correctamente." });
+      toast({ title: "¡Registrado!", description: "Revisa tu mail para entrar al grupo." });
       setIsSubmitted(true);
     } catch (error) {
-      console.error("Error:", error);
-      toast({ title: "Error", description: "No se pudo enviar.", variant: "destructive" });
+      console.error("Error EmailJS:", error);
+      toast({ title: "Error", description: "No se pudo enviar el registro.", variant: "destructive" });
     } finally {
       setIsSubmitting(false);
     }
   };
+
+
+
+
+
 
   return (
     <section id="comunidad" className="py-20 bg-primary/5">
