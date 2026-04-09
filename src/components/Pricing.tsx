@@ -11,8 +11,9 @@ const Pricing = () => {
       title: "Individual",
       price: "$60.000",
       period: "/mes",
-      originalPrice: null,
-      discount: null,
+      originalPrice: "$75.000",
+      discount: "25% OFF",
+      popular: true,,
       popular: false,
       features: [
         "Acceso a los dos encuentros quincenales",
@@ -46,7 +47,7 @@ const Pricing = () => {
     },
     {
       title: "Pago Anual (Financiado)",
-      price: "$30.000",
+      price: "$50.000",
       period: "por 12 cuotas - Tarjeta Visa",
       originalPrice: null,
       discount: null,
