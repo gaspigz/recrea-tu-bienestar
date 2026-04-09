@@ -267,10 +267,10 @@ const Registration = () => {
 
 
             {/* Botón de WhatsApp */}
-  {/*           <div className="mt-8 text-center">
+            <div className="mt-8 text-center">
               <div className="bg-white/10 rounded-2xl p-6">
                 <h3 className="text-white font-bold text-lg mb-2">
-                  🔗 Únete a Nuestra Comunidad !!!
+                  🔗 Únete a Nuestra Comunidad !!!!!
                 </h3>
                 <p className="text-white/80 mb-4">
                   Accede ahora a nuestro grupo de WhatsApp exclusivo
@@ -286,12 +286,11 @@ const Registration = () => {
                     )
                   }
 
-*/}
-
-   {/*      >    */}
 
 
 
+                  
+                >
                   <span className="mr-2">📱</span>
                   Unirse al Grupo
                 </Button>
