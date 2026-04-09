@@ -262,8 +262,12 @@ const Registration = () => {
               </Button>
             </form>
 
+
+
+
+
             {/* Botón de WhatsApp */}
-          {/*   <div className="mt-8 text-center">
+  {/*           <div className="mt-8 text-center">
               <div className="bg-white/10 rounded-2xl p-6">
                 <h3 className="text-white font-bold text-lg mb-2">
                   🔗 Únete a Nuestra Comunidad !!!
@@ -280,14 +284,20 @@ const Registration = () => {
                       "https://chat.whatsapp.com/HeY10ZbEd348MyFFvydZLz?mode=gi_t ",
                       "_blank"
                     )
-                  }*/}
-               {/*  
+                  }
+
+*/}
+
+   {/*      >    */}
+
+
+
                   <span className="mr-2">📱</span>
                   Unirse al Grupo
                 </Button>
               </div>
-            </div>/  
-          </div>*/}
+            </div>
+          </div>
         </div>
       </div>
     </section>
