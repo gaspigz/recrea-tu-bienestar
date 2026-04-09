@@ -3,7 +3,7 @@ import Benefits from "@/components/Benefits";
 import WorkshopDetails from "@/components/WorkshopDetails";
 import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
-import Registration from "@/components/RegistrationOriginal";
+import Registration from "@/components/Registration";
 import Footer from "@/components/Footer";
 
 const Index = () => {
