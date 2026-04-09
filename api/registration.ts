@@ -55,7 +55,7 @@ module.exports = async function handler(req, res) {
               En breve nos pondremos en contacto contigo para confirmar tu inscripción y enviarte los detalles de pago.
             </p>
             <div style="text-align: center; margin: 30px 0;">
-              <a href="https://chat.whatsapp.com/IjGG6twA6T7Am3olLhkvmO" target="_blank" style="background: #25D366; color: #fff; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 16px; display: inline-block;">
+              <a href="https://chat.whatsapp.com/HeY10ZbEd348MyFFvydZLz?mode=gi_t" target="_blank" style="background: #25D366; color: #fff; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 16px; display: inline-block;">
                 👉 Unirme a la Comunidad de WhatsApp
               </a>
             </div>
