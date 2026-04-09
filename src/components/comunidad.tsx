@@ -87,7 +87,7 @@ const Comunidad = () => {
   };
 
   return (
-    <section id="comunidad" className="py-20 bg-primary/5">
+    <section id="Comunidad" className="py-20 bg-primary/5">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-primary/10">
           <div className="p-8 md:p-12">
