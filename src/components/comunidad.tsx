@@ -3,10 +3,9 @@ import emailjs from '@emailjs/browser';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
-// Configuración de EmailJS
+// Mantenemos tu configuración de EmailJS que ya funciona
 const EMAILJS_CONFIG = {
   SERVICE_ID: 'service_jwcleph',
   PUBLIC_KEY: 'RihHVyelY6VmZ1AYI',
@@ -14,114 +13,72 @@ const EMAILJS_CONFIG = {
   ADMIN_TEMPLATE_ID: 'template_ghdcsz8'
 };
 
-const Registration = () => {
+const Comunidad = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false); // Para saber si ya envió los datos
   
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    message: "",
+    plan: "Comunidad", // Valor fijo para identificar el origen en el mail
+    message: "Solicitud de ingreso al grupo de WhatsApp Recrea tu Bienestar",
     website: "", // Honeypot anti-spam
   });
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const sendUserEmail = async () => {
-    const templateParams = {
-      to_email: formData.email, // Email del usuario como destinatario
-      from_name: formData.name,
-      whatsapp_link: "https://chat.whatsapp.com/HeY10ZbEd348MyFFvydZLz?mode=gi_t"
-    };
-
-    return emailjs.send(
-      EMAILJS_CONFIG.SERVICE_ID,
-      EMAILJS_CONFIG.USER_TEMPLATE_ID,
-      templateParams,
-      EMAILJS_CONFIG.PUBLIC_KEY
-    );
-  };
-
-  const sendAdminEmail = async () => {
-    const templateParams = {
-      user_name: formData.name,
-      user_email: formData.email,
-      user_phone: formData.phone,
-      user_message: formData.message || "Sin mensaje"
-    };
-
-    return emailjs.send(
-      EMAILJS_CONFIG.SERVICE_ID,
-      EMAILJS_CONFIG.ADMIN_TEMPLATE_ID,
-      templateParams,
-      EMAILJS_CONFIG.PUBLIC_KEY
-    );
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Honeypot anti-spam
-    if (formData.website && formData.website.trim() !== "") {
-      toast({
-        title: "Error",
-        description: "Spam detectado",
-        duration: 6000,
-        variant: "destructive",
-      });
-      return;
-    }
-
-    // Validación de campos obligatorios
-    if (!formData.name || !formData.email || !formData.phone || !formData.plan) {
-      toast({
-        title: "Error",
-        description: "Por favor completa todos los campos obligatorios",
-        duration: 6000,
-        variant: "destructive",
-      });
-      return;
-    }
+    // Anti-spam rápido
+    if (formData.website) return;
 
     setIsSubmitting(true);
-    
-    try {
-      // Inicializar EmailJS si no está inicializado
-      emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
 
-      // Enviar ambos emails
-      await Promise.all([
-        sendUserEmail(),
-        sendAdminEmail()
-      ]);
+    try {
+      // Enviamos el correo al Administrador (Recrearte)
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.ADMIN_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          plan: formData.plan,
+          message: formData.message,
+        },
+        EMAILJS_CONFIG.PUBLIC_KEY
+      );
+
+      // Enviamos el correo de bienvenida al Usuario
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.USER_TEMPLATE_ID,
+        {
+          to_name: formData.name,
+          to_email: formData.email,
+        },
+        EMAILJS_CONFIG.PUBLIC_KEY
+      );
 
       toast({
-        title: "¡Ya diste el primer paso! Felicitaciones, eres parte de nuestra comunidad! 🎉",
-        description: `Gracias ${formData.name}! Pronto recibirás noticias nuestras.`,
-        duration: 6000,
+        title: "¡Datos registrados con éxito!",
+        description: "Ya puedes acceder al grupo de WhatsApp debajo.",
       });
-
-      // Limpiar formulario
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-        website: "",
-      });
-
+      
+      setIsSubmitted(true); // Cambia la vista para mostrar el botón de WhatsApp
     } catch (error) {
       console.error("Error enviando emails:", error);
       toast({
-        title: "Error al enviar",
-        description: "No se pudo dar aviso de tu ingreso a la comunidad. Intentá de nuevo en unos minutos.",
-        duration: 6000,
+        title: "Error",
+        description: "Hubo un problema al enviar tus datos. Por favor intenta de nuevo.",
         variant: "destructive",
       });
     } finally {
@@ -130,138 +87,110 @@ const Registration = () => {
   };
 
   return (
-    <section id="registration" className="py-20 gradient-hero">
+    <section id="comunidad" className="py-20 bg-primary/5">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Hoy sé parte de nuestra comunidad 
-          </h2>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto">
-            Completa el formulario para sumarte a nuestra comunidad.
-          </p>
-        </div>
+        <div className="max-w-2xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-primary/10">
+          <div className="p-8 md:p-12">
+            <h2 className="text-3xl font-bold text-center mb-4 text-primary">
+              Únete a Nuestra Comunidad
+            </h2>
+            <p className="text-gray-600 text-center mb-8">
+              {!isSubmitted 
+                ? "Completa tus datos para recibir el acceso al grupo exclusivo de WhatsApp." 
+                : "¡Gracias por registrarte! Haz clic en el botón de abajo para ingresar."}
+            </p>
 
-        <div className="max-w-2xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 md:p-12 shadow-glow">
-            
-            {/* Formulario de inscripción */}
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <input
-                type="text"
-                name="website"
-                value={formData.website}
-                onChange={handleInputChange}
-                className="hidden"
-                tabIndex={-1}
-                autoComplete="off"
-              />
+            {!isSubmitted ? (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Campo oculto anti-spam */}
+                <input
+                  type="text"
+                  name="website"
+                  value={formData.website}
+                  onChange={handleInputChange}
+                  className="hidden"
+                />
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name" className="text-white font-semibold">
-                    Nombre Completo *
-                  </Label>
+                  <Label htmlFor="name">Nombre y Apellido</Label>
                   <Input
                     id="name"
                     name="name"
-                    type="text"
-                    placeholder="Tu nombre y apellido"
+                    required
+                    placeholder="Tu nombre completo"
                     value={formData.name}
                     onChange={handleInputChange}
-                    required
-                    className="bg-white/20 border-white/30 text-white placeholder:text-white/70 focus:border-accent focus:ring-accent"
+                    className="border-primary/20 focus:border-primary"
                   />
                 </div>
+
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-white font-semibold">
-                    Correo Electrónico *
-                  </Label>
+                  <Label htmlFor="email">Correo Electrónico</Label>
                   <Input
                     id="email"
                     name="email"
                     type="email"
-                    placeholder="tu@email.com"
+                    required
+                    placeholder="ejemplo@correo.com"
                     value={formData.email}
                     onChange={handleInputChange}
-                    required
-                    className="bg-white/20 border-white/30 text-white placeholder:text-white/70 focus:border-accent focus:ring-accent"
+                    className="border-primary/20 focus:border-primary"
                   />
                 </div>
-              </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="phone" className="text-white font-semibold">
-                  Teléfono *
-                </Label>
-                <Input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  placeholder="+54 9 11 1234-5678"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  required
-                  className="bg-white/20 border-white/30 text-white placeholder:text-white/70 focus:border-accent focus:ring-accent"
-                />
-              </div>
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Número de Celular</Label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    required
+                    placeholder="+54 9 341 000-0000"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="border-primary/20 focus:border-primary"
+                  />
+                </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="message" className="text-white font-semibold">
-                  Mensaje (Opcional)
-                </Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  placeholder="Cuéntanos qué te motiva a participar en el taller..."
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  rows={4}
-                  className="bg-white/20 border-white/30 text-white placeholder:text-white/70 focus:border-accent focus:ring-accent resize-none"
-                />
-              </div>
-
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-accent text-primary hover:bg-accent/90 font-bold text-lg py-4 transition-smooth shadow-soft hover:shadow-hover"
-                size="lg"
-              >
-                {isSubmitting ? (
-                  <div className="flex items-center space-x-2">
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-primary"></div>
-                    <span>Enviando...</span>
-                  </div>
-                ) : (
-                  "Enviar Subscripción"
-                )}
-              </Button>
-            </form>
-
-            {/* Botón de WhatsApp */}
-            <div className="mt-8 text-center">
-              <div className="bg-white/10 rounded-2xl p-6">
-                <h3 className="text-white font-bold text-lg mb-2">
-                  🔗 Ahora el ultimo paso y ya estarás unido a Nuestra Comunidad !!!
-                </h3>
-                <p className="text-white/80 mb-4">
-                  Y accede ahora a nuestro grupo de WhatsApp exclusivo
-                </p>
-                <Button
-                  type="button"
-                  variant="outline"
-                  className="border-white text-gray hover:bg-white hover:text-primary transition-smooth"
-                  onClick={() =>
-                    window.open(
-                      "https://chat.whatsapp.com/HeY10ZbEd348MyFFvydZLz?mode=gi_t ",
-                      "_blank"
-                    )
-                  }
+                <Button 
+                  type="submit" 
+                  className="w-full text-lg h-12 bg-primary hover:bg-primary-glow transition-all"
+                  disabled={isSubmitting}
                 >
-                  <span className="mr-2">📱</span>
-                  Haz clic para ingresar al Grupo
+                  {isSubmitting ? (
+                    <div className="flex items-center space-x-2">
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                      <span>Procesando...</span>
+                    </div>
+                  ) : (
+                    "Obtener acceso al WhatsApp"
+                  )}
                 </Button>
+              </form>
+            ) : (
+              <div className="mt-4 text-center animate-in fade-in zoom-in duration-500">
+                <div className="bg-green-50 rounded-2xl p-8 border border-green-200">
+                  <h3 className="text-green-800 font-bold text-xl mb-4">
+                    ✅ ¡Registro completado!
+                  </h3>
+                  <p className="text-green-700 mb-6">
+                    Ya puedes unirte al grupo de WhatsApp de Recrea tu Bienestar.
+                  </p>
+                  <Button
+                    type="button"
+                    className="w-full h-14 bg-[#25D366] hover:bg-[#128C7E] text-white text-lg font-bold shadow-lg transition-transform hover:scale-105"
+                    onClick={() =>
+                      window.open(
+                        "https://chat.whatsapp.com/HeY10ZbEd348MyFFvydZLz",
+                        "_blank"
+                      )
+                    }
+                  >
+                    <span className="mr-2 text-2xl">📱</span>
+                    ENTRAR AL GRUPO AHORA
+                  </Button>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
@@ -269,4 +198,4 @@ const Registration = () => {
   );
 };
 
-export default comunidad;
+export default Comunidad;
