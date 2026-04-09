@@ -39,11 +39,12 @@ const Comunidad = () => {
     // Mapeo exhaustivo para cubrir TODOS los nombres de etiquetas en tus plantillas
     const templateParams = {
       // 1. Campos que busca la plantilla de ADMIN (template_ghdcsz8)
-      name: formData.name,      // <--- IMPORTANTE: Tu plantilla usa {{name}}
-      email: formData.email,    // <--- IMPORTANTE: Tu plantilla usa {{email}}
-      phone: formData.phone,    // <--- IMPORTANTE: Tu plantilla usa {{phone}}
-      plan: "Comunidad",        // <--- IMPORTANTE: Tu plantilla usa {{plan}}
-      message: formData.message || "Interés en unirse a la comunidad",
+      user_name: formData.name,      // <--- IMPORTANTE: Tu plantilla usa {{name}}
+      user_email: formData.email,    // <--- IMPORTANTE: Tu plantilla usa {{email}}
+      user_phone: formData.phone,    // <--- IMPORTANTE: Tu plantilla usa {{phone}}
+      plan: "Comunidad",   
+      selected_plan: "Comunidad",     // <--- IMPORTANTE: Tu plantilla usa {{plan}}
+      user_message: formData.message || "Interés en unirse a la comunidad",
 
       // 2. Campos que busca la plantilla de USUARIO (template_mf9so3c)
       to_name: formData.name,   // Tu plantilla usa {{to_name}}
