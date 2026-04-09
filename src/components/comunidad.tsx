@@ -42,8 +42,8 @@ const Comunidad = () => {
       user_name: formData.name,      // <--- IMPORTANTE: Tu plantilla usa {{name}}
       user_email: formData.email,    // <--- IMPORTANTE: Tu plantilla usa {{email}}
       user_phone: formData.phone,    // <--- IMPORTANTE: Tu plantilla usa {{phone}}
-      plan: "Comunidad",   
-      selected_plan: "Comunidad",     // <--- IMPORTANTE: Tu plantilla usa {{plan}}
+      plan: "ser parte de la comunidad",   
+      selected_plan: "ser parte de la comunidad",     // <--- IMPORTANTE: Tu plantilla usa {{plan}}
       user_message: formData.message || "Interés en unirse a la comunidad de Recrea tu Bienestar", // <--- IMPORTANTE: Tu plantilla usa {{message}}
 
       // 2. Campos que busca la plantilla de USUARIO (template_mf9so3c)

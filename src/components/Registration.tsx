@@ -224,9 +224,9 @@ const Registration = () => {
                   className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white focus:border-accent focus:ring-accent focus:outline-none"
                 >
                   <option value="" className="text-gray-800">Selecciona una opción</option>
-                  <option value="individual" className="text-gray-800">Individual por mes</option>
-                  <option value="duo" className="text-gray-800">Promoción Dúo por mes</option>
-                  <option value="adelantado" className="text-gray-800">Pago Financiado en 12 cuotas</option>
+                  <option value="realizar el taller, opción individual" className="text-gray-800">Individual por mes</option>
+                  <option value="realizar el taller, opción dúo" className="text-gray-800">Promoción Dúo por mes</option>
+                  <option value="realizar el taller, opción individual financiado" className="text-gray-800">Pago Financiado en 12 cuotas</option>
                 </select>
               </div>
 
