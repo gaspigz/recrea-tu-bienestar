@@ -4,7 +4,7 @@ import WorkshopDetails from "@/components/WorkshopDetails";
 import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import Registration from "@/components/Registration";
-import Comunidad from "@/components/Comunidad";
+import Comunidad from "@/components/comunidad"; {/* <--- 2. AGREGAR ESTO */}
 import Footer from "@/components/Footer";
 
 const Index = () => {
