@@ -13,7 +13,6 @@ const Pricing = () => {
       period: "/mes",
       originalPrice: "$75.000",
       discount: "25% OFF",
-      popular: true,,
       popular: false,
       features: [
         "Acceso a los dos encuentros quincenales",
