@@ -22,8 +22,7 @@ const Comunidad = () => {
     name: "",
     email: "",
     phone: "",
-    plan: "Comunidad", // Esto viajará como {{plan}}
-    message: "",      // Esto viajará como {{message}}
+    message: "",
     website: "", 
   });
 
@@ -37,21 +36,38 @@ const Comunidad = () => {
     if (formData.website) return;
     setIsSubmitting(true);
 
-    // Estos nombres (from_name, plan, etc) deben ser IGUALES a los de tu plantilla en EmailJS
-    const templateParams = {
+    // TRUCO UNIVERSAL: Enviamos la misma info con varios nombres 
+    // para que coincida con lo que tengas en EmailJS
+    const universalParams = {
+      // Variaciones para el Nombre
+      name: formData.name,
       from_name: formData.name,
+      user_name: formData.name,
+      
+      // Variaciones para el Email
+      email: formData.email,
       from_email: formData.email,
+      reply_to: formData.email,
+      
+      // Variaciones para el Teléfono
       phone: formData.phone,
-      plan: formData.plan,
+      whatsapp: formData.phone,
+      
+      // El Plan (Fijo como pediste)
+      plan: "Comunidad",
+      tipo_plan: "Comunidad",
+      
+      // El Mensaje
       message: formData.message || "Interés en unirse a la comunidad",
+      user_message: formData.message,
     };
 
     try {
-      // 1. Envío al Administrador (Recrearte)
+      // 1. Envío al Admin (Vos)
       await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID,
         EMAILJS_CONFIG.ADMIN_TEMPLATE_ID,
-        templateParams,
+        universalParams,
         EMAILJS_CONFIG.PUBLIC_KEY
       );
 
@@ -66,11 +82,11 @@ const Comunidad = () => {
         EMAILJS_CONFIG.PUBLIC_KEY
       );
 
-      toast({ title: "¡Datos enviados!", description: "Revisa tu correo y únete al grupo." });
+      toast({ title: "¡Solicitud enviada!", description: "Datos registrados correctamente." });
       setIsSubmitted(true);
     } catch (error) {
-      console.error("Error EmailJS:", error);
-      toast({ title: "Error", description: "No se pudo enviar el mail.", variant: "destructive" });
+      console.error("Error:", error);
+      toast({ title: "Error", description: "No se pudo enviar.", variant: "destructive" });
     } finally {
       setIsSubmitting(false);
     }
@@ -85,13 +101,15 @@ const Comunidad = () => {
           {!isSubmitted ? (
             <form onSubmit={handleSubmit} className="space-y-6">
               <input type="text" name="website" value={formData.website} onChange={handleInputChange} className="hidden" />
+              
               <div className="space-y-2">
                 <Label htmlFor="name">Nombre y Apellido</Label>
-                <Input id="name" name="name" required value={formData.name} onChange={handleInputChange} placeholder="Tu nombre" />
+                <Input id="name" name="name" required value={formData.name} onChange={handleInputChange} placeholder="Tu nombre completo" />
               </div>
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="email">Correo Electrónico</Label>
                   <Input id="email" name="email" type="email" required value={formData.email} onChange={handleInputChange} placeholder="tu@mail.com" />
                 </div>
                 <div className="space-y-2">
@@ -99,25 +117,33 @@ const Comunidad = () => {
                   <Input id="phone" name="phone" required value={formData.phone} onChange={handleInputChange} placeholder="+54 9..." />
                 </div>
               </div>
+
               <div className="space-y-2">
-                <Label htmlFor="message">¿Algo que quieras contarnos?</Label>
-                <Textarea id="message" name="message" value={formData.message} onChange={handleInputChange} placeholder="Opcional..." />
+                <Label htmlFor="message">¿Por qué quieres sumarte? (Opcional)</Label>
+                <Textarea 
+                  id="message" 
+                  name="message" 
+                  value={formData.message} 
+                  onChange={handleInputChange} 
+                  placeholder="Contanos brevemente..." 
+                  className="min-h-[100px]"
+                />
               </div>
-              <Button type="submit" className="w-full h-12" disabled={isSubmitting}>
-                {isSubmitting ? "Enviando..." : "Obtener acceso al WhatsApp"}
+
+              <Button type="submit" className="w-full h-12 text-lg" disabled={isSubmitting}>
+                {isSubmitting ? "Enviando datos..." : "Obtener acceso al WhatsApp"}
               </Button>
             </form>
           ) : (
-            <div className="text-center animate-in fade-in zoom-in">
-              <div className="bg-green-50 p-8 rounded-2xl border border-green-200">
-                <h3 className="text-green-800 font-bold text-xl mb-4">✅ ¡Registro completado!</h3>
-                <Button 
-                  className="w-full h-14 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg"
-                  onClick={() => window.open("https://chat.whatsapp.com/HeY10ZbEd348MyFFvydZLz", "_blank")}
-                >
-                  📱 ENTRAR AL GRUPO AHORA
-                </Button>
-              </div>
+            <div className="text-center bg-green-50 p-8 rounded-2xl border border-green-200 animate-in fade-in zoom-in">
+              <h3 className="text-green-800 font-bold text-xl mb-4">✅ ¡Datos recibidos!</h3>
+              <p className="text-green-700 mb-6">Ya puedes entrar al grupo de WhatsApp de Recrea tu Bienestar.</p>
+              <Button 
+                className="w-full h-14 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg shadow-lg"
+                onClick={() => window.open("https://chat.whatsapp.com/HeY10ZbEd348MyFFvydZLz", "_blank")}
+              >
+                📱 ENTRAR AL GRUPO AHORA
+              </Button>
             </div>
           )}
         </div>
