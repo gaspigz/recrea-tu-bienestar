@@ -86,7 +86,11 @@ const Comunidad = () => {
     <section id="comunidad" className="py-20 bg-primary/5">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-primary/10">
-          <h2 className="text-3xl font-bold text-center mb-6 text-primary">Únete a Nuestra Comunidad Recrea tu bienestar</h2>
+          {/* <h2 className="text-3xl font-bold text-center mb-6 text-primary">Únete a Nuestra Comunidad Recrea tu bienestar</h2> */}
+          <h2 className="text-3xl font-bold mb-6 text-primary flex flex-col items-center text-center">
+           <span>Únete a Nuestra Comunidad</span>
+           <span>Recrea tu bienestar</span>
+           </h2>
           
           {!isSubmitted ? (
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -121,7 +125,7 @@ const Comunidad = () => {
               </div>
 
               <Button type="submit" className="w-full h-12 text-lg" disabled={isSubmitting}>
-                {isSubmitting ? "Enviando..." : "Obtener acceso al WhatsApp"}
+                {isSubmitting ? "Enviando..." : "Obtener acceso al grupo de WhatsApp de nuestra comunidad"}
               </Button>
             </form>
           ) : (
