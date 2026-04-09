@@ -23,11 +23,8 @@ const Comunidad = () => {
     email: "",
     phone: "",
     message: "",
-    website: "", // Honeypot anti-spam
+    website: "", // Honeypot
   });
-
-  // CONFIGURACIÓN DE WHATSAPP (Rotación entre dos números para repartir consultas)
-  const nrosWhatsApp = ["5493413128282", "5493413128282"]; // Cambiá el segundo si son distintos
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -39,41 +36,44 @@ const Comunidad = () => {
     if (formData.website) return;
     setIsSubmitting(true);
 
-    // Elegimos un número al azar para esta sesión
-    const nroAsignado = nrosWhatsApp[Math.floor(Math.random() * nrosWhatsApp.length)];
+    // Mapeo exhaustivo para cubrir TODOS los nombres de etiquetas en tus plantillas
+    const templateParams = {
+      // 1. Campos que busca la plantilla de ADMIN (template_ghdcsz8)
+      user_name: formData.name,      // <--- IMPORTANTE: Tu plantilla usa {{name}}
+      user_email: formData.email,    // <--- IMPORTANTE: Tu plantilla usa {{email}}
+      user_phone: formData.phone,    // <--- IMPORTANTE: Tu plantilla usa {{phone}}
+      plan: "ser parte de la comunidad",   
+      selected_plan: "ser parte de la comunidad",     // <--- IMPORTANTE: Tu plantilla usa {{plan}}
+      user_message: formData.message || "Interés en unirse a la comunidad de Recrea tu Bienestar", // <--- IMPORTANTE: Tu plantilla usa {{message}}
 
-    // Definimos los parámetros para EmailJS (corrigiendo el error de TypeScript)
-    const templateParams: Record<string, string> = {
-      name: formData.name,      
-      email: formData.email,    
-      phone: formData.phone,    
-      plan: "la Comunidad de Bienestar", 
-      message: formData.message || "Interés en sumarse a la comunidad",
-      to_name: formData.name,
-      to_email: formData.email,
+      // 2. Campos que busca la plantilla de USUARIO (template_mf9so3c)
+      to_name: formData.name,   // Tu plantilla usa {{to_name}}
+      to_email: formData.email, // Tu plantilla usa {{to_email}}
+
+      // 3. Extras por compatibilidad con el historial de EmailJS
       from_name: formData.name,
-      from_email: formData.email
+      from_email: formData.email,
     };
 
     try {
-      // 1. Envío al Admin (Vos)
+      // Envío al Admin (Vos)
       await emailjs.send(
-        EMAILJS_CONFIG.SERVICE_ID, 
-        EMAILJS_CONFIG.ADMIN_TEMPLATE_ID, 
-        templateParams, 
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.ADMIN_TEMPLATE_ID,
+        templateParams,
         EMAILJS_CONFIG.PUBLIC_KEY
       );
 
-      // 2. Envío al Usuario (Bienvenida)
+      // Envío al Usuario (Bienvenida)
       await emailjs.send(
-        EMAILJS_CONFIG.SERVICE_ID, 
-        EMAILJS_CONFIG.USER_TEMPLATE_ID, 
-        templateParams, 
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.USER_TEMPLATE_ID,
+        templateParams,
         EMAILJS_CONFIG.PUBLIC_KEY
       );
 
+      toast({ title: "¡Registrado!", description: "Revisa tu mail, te dejamos una constancia de tu registración en la comunidad. Ya puedes ingresar a la misma." });
       setIsSubmitted(true);
-      toast({ title: "¡Datos enviados!", description: "Ya podés unirte al grupo." });
     } catch (error) {
       console.error("Error EmailJS:", error);
       toast({ title: "Error", description: "No se pudo enviar el registro.", variant: "destructive" });
@@ -84,16 +84,16 @@ const Comunidad = () => {
 
   return (
     <section id="comunidad" className="py-20 bg-primary/5">
-      <div className="container mx-auto px-4 text-center">
-        <div className="max-w-2xl mx-auto bg-white rounded-3xl shadow-xl p-8 border border-primary/10">
-          <h2 className="text-3xl font-bold mb-6 text-primary flex flex-col items-center">
-            <span>Únete a Nuestra Comunidad</span>
-            <span className="text-2xl opacity-90 font-medium">Recrea tu bienestar</span>
-          </h2>
+      <div className="container mx-auto px-4">
+        <div className="max-w-2xl mx-auto bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-primary/10">
+          {/* <h2 className="text-3xl font-bold text-center mb-6 text-primary">Únete a Nuestra Comunidad Recrea tu bienestar</h2> */}
+          <h2 className="text-3xl font-bold mb-6 text-primary flex flex-col items-center text-center">
+           <span>Únete a Nuestra Comunidad</span>
+           <span>Recrea tu bienestar</span>
+           </h2>
           
           {!isSubmitted ? (
-            <form onSubmit={handleSubmit} className="space-y-6 text-left">
-              {/* Campo oculto anti-spam */}
+            <form onSubmit={handleSubmit} className="space-y-6">
               <input type="text" name="website" value={formData.website} onChange={handleInputChange} className="hidden" />
               
               <div className="space-y-2">
@@ -113,7 +113,7 @@ const Comunidad = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message">¿Por qué quieres sumarte? (Opcional)</Label>
+                <Label htmlFor="message">¿Por qué quieres sumarte a nuestra comunidad de Recrea tu Bienestar? (Opcional)</Label>
                 <Textarea 
                   id="message" 
                   name="message" 
@@ -124,22 +124,20 @@ const Comunidad = () => {
                 />
               </div>
 
-              <Button type="submit" className="w-full h-12 text-lg font-bold" disabled={isSubmitting}>
-                {isSubmitting ? "Enviando..." : "📱 Unirme al WhatsApp"}
+              <Button type="submit" className="w-full h-12 text-lg" disabled={isSubmitting}>
+                {isSubmitting ? "Enviando..." : "Solicitar Acceso"}
               </Button>
             </form>
           ) : (
-            <div className="animate-in fade-in zoom-in duration-500">
-              <div className="bg-green-50 rounded-2xl p-8 border border-green-200">
-                <h3 className="text-green-800 font-bold text-xl mb-4">✅ ¡Registro completado!</h3>
-                <p className="text-green-700 mb-6">Hacé clic abajo para entrar al grupo de WhatsApp de la comunidad.</p>
-                <Button 
-                  className="w-full h-14 bg-[#25D366] hover:bg-[#128C7E] text-white text-lg font-bold shadow-lg"
-                  onClick={() => window.open(`https://chat.whatsapp.com/HeY10ZbEd348MyFFvydZLz`, "_blank")}
-                >
-                  ENTRAR AL GRUPO AHORA
-                </Button>
-              </div>
+            <div className="text-center bg-green-50 p-8 rounded-2xl border border-green-200 animate-in fade-in zoom-in">
+              <h3 className="text-green-800 font-bold text-xl mb-4">✅ ¡Datos recibidos!</h3>
+              <p className="text-green-700 mb-6">Ya puedes entrar al grupo de WhatsApp de Recrea tu Bienestar.</p>
+              <Button 
+                className="w-full h-14 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg shadow-lg"
+                onClick={() => window.open("https://chat.whatsapp.com/HeY10ZbEd348MyFFvydZLz", "_blank")}
+              >
+                📱 ENTRAR AL GRUPO AHORA
+              </Button>
             </div>
           )}
         </div>
