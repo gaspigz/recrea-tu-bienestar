@@ -44,7 +44,7 @@ const Comunidad = () => {
       user_phone: formData.phone,    // <--- IMPORTANTE: Tu plantilla usa {{phone}}
       plan: "Comunidad",   
       selected_plan: "Comunidad",     // <--- IMPORTANTE: Tu plantilla usa {{plan}}
-      user_message: formData.message || "Interés en unirse a la comunidad",
+      user_message: formData.message || "Interés en unirse a la comunidad de Recrea tu Bienestar", // <--- IMPORTANTE: Tu plantilla usa {{message}}
 
       // 2. Campos que busca la plantilla de USUARIO (template_mf9so3c)
       to_name: formData.name,   // Tu plantilla usa {{to_name}}
@@ -72,7 +72,7 @@ const Comunidad = () => {
         EMAILJS_CONFIG.PUBLIC_KEY
       );
 
-      toast({ title: "¡Registrado!", description: "Revisa tu mail, te enviamos el acceso." });
+      toast({ title: "¡Registrado!", description: "Revisa tu mail, te dejamos una constancia de tu registración en la comunidad. Ya puedes ingresar a la misma." });
       setIsSubmitted(true);
     } catch (error) {
       console.error("Error EmailJS:", error);
@@ -86,7 +86,7 @@ const Comunidad = () => {
     <section id="comunidad" className="py-20 bg-primary/5">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-primary/10">
-          <h2 className="text-3xl font-bold text-center mb-6 text-primary">Únete a Nuestra Comunidad</h2>
+          <h2 className="text-3xl font-bold text-center mb-6 text-primary">Únete a Nuestra Comunidad Recrea tu bienestar</h2>
           
           {!isSubmitted ? (
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -109,7 +109,7 @@ const Comunidad = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message">¿Por qué quieres sumarte? (Opcional)</Label>
+                <Label htmlFor="message">¿Por qué quieres sumarte a nuestra comunidad de Recrea tu Bienestar? (Opcional)</Label>
                 <Textarea 
                   id="message" 
                   name="message" 
