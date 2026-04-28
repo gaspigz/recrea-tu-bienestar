@@ -18,7 +18,7 @@ const Hero = () => {
     ¡Promoción Exclusiva!
   </span>
   <span className="block text-lg md:text-xl font-extrabold mt-1">
-    Inscríbete antes del <strong className="text-white underline decoration-wavy"> ¡Súmate a nuestra comunidad! </strong> y obtén <strong className="text-white underline decoration-wavy"> un regalo sorpresa </strong>.
+   🎁  <strong className="text-white underline decoration-wavy"> ¡Súmate a nuestra comunidad! </strong> y obtén <strong className="text-white underline decoration-wavy"> un regalo sorpresa </strong>.
   </span>
 </div>
 
