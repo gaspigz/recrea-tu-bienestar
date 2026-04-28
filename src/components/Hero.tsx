@@ -9,8 +9,8 @@ const Hero = () => {
   const navLinks = [
     { name: "Inicio", id: "hero" },
     { name: "Beneficios", id: "benefits" },
-      { name: "Detalles", id: "details" },
-    { name: "Precios", id: "pricing" },
+      { name: "Detalles", id: "WorkshopDetails" },
+    { name: "Precios", id: "Pricing" },
     { name: "Comunidad", id: "comunidad" },
     { name: "Inscripción", id: "registration" }
   ];
