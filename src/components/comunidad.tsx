@@ -88,7 +88,7 @@ const Comunidad = () => {
         <div className="max-w-2xl mx-auto bg-white rounded-3xl shadow-xl p-8 border border-primary/10">
           <h2 className="text-3xl font-bold mb-6 text-primary flex flex-col items-center">
             <span>Únete a Nuestra Comunidad</span>
-            <span className="text-2xl opacity-90 font-medium">Recrea tu bienestar</span>
+            <span className="text-2xl opacity-90 font-medium">Recrea tu bienestar y recibe un regalo.</span>
           </h2>
           
           {!isSubmitted ? (
