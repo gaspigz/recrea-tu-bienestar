@@ -18,7 +18,7 @@ const Hero = () => {
     ¡Promoción Exclusiva!
   </span>
   <span className="block text-lg md:text-xl font-extrabold mt-1">
-    Inscríbete antes del <strong className="text-white underline decoration-wavy">20 de abril</strong> y obtén <strong className="text-white underline decoration-wavy">$10.000 de descuento</strong> en tu cuota de abril.
+    Inscríbete antes del <strong className="text-white underline decoration-wavy"> ¡Súmate a nuestra comunidad! </strong> y obtén <strong className="text-white underline decoration-wavy"> un regalo sorpresa </strong>.
   </span>
 </div>
 
