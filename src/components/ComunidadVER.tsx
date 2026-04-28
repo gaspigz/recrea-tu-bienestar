@@ -120,7 +120,7 @@ const Comunidad = () => {
               
                <div className="flex items-center gap-2">
                   <span className="text-green-500 font-bold text-lg">✨</span>
-                  <span>Otras sorpresas</span>
+                  <span>Otras sorpresas...</span>
                 </div>
 
               <form onSubmit={handleSubmit} className="space-y-6">
