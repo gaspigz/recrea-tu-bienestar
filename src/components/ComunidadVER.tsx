@@ -167,7 +167,7 @@ const Comunidad = () => {
               <div className="flex flex-col space-y-4"> 
                 <a href="/E-BOOK-BienestarEnJuego.pdf" download="Tu E-BOOK de regalo" className="w-full">
                   <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white transition-all h-12">
-                    📥 Baja Tu E-BOOK de regalo (PDF)
+                    Paso 1: 📥 Baja Tu E-BOOK de regalo (PDF)
                   </Button>
                 </a>
 
@@ -175,7 +175,7 @@ const Comunidad = () => {
                   className="w-full h-12 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg shadow-lg"
                   onClick={() => window.open("https://chat.whatsapp.com/HeY10ZbEd348MyFFvydZLz", "_blank")}
                 >
-                  ENTRA AL GRUPO AHORA
+                   Paso 2: Entra al GRUPO AHORA
                 </Button>
               </div>
             </div>
