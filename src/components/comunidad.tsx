@@ -140,7 +140,7 @@ const Comunidad = () => {
                     <Button 
                       variant="outline"
                       className="w-full h-12 border-primary text-primary hover:bg-primary/5 font-bold"
-                      onClick={() => window.open(EBOOK_URL, "_blank")}
+                      onClick={() => window.open("/E-BOOK-BienestarEnJuego.pdf", "_blank")}
                     >
                       📥 DESCARGAR EBOOK AHORA
                     </Button>
