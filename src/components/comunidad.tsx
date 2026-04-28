@@ -137,7 +137,7 @@ const Comunidad = () => {
               
               
                {/* Botón 1: Descargar Calendario */}
-          <a href="/2026HorariosRecreaTuBienestar.png" download="Calendario_2026.png" className="w-full sm:w-auto">
+          <a href="/E-BOOK-BienestarEnJuego.pdf" download="Tu E-BOOK de regalo" className="w-full sm:w-auto">
             <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white transition-all">
               <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -154,7 +154,7 @@ const Comunidad = () => {
                 className="w-full h-14 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg shadow-lg"
                 onClick={() => window.open("https://chat.whatsapp.com/HeY10ZbEd348MyFFvydZLz", "_blank")}
               >
-                📱 ENTRAR AL GRUPO AHORA
+                📱 ENTRAR AL GRUPO Bow
               </Button>
             </div>
           )}
