@@ -4,7 +4,7 @@ import { CheckCircle2 } from "lucide-react"; // Importamos un icono de tilde
 
 const Pricing = () => {
   const scrollToRegistration = () => {
-    document.getElementById('registration')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('Pricing')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   // Fecha actual para la comparación
