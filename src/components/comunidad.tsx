@@ -119,7 +119,7 @@ const Comunidad = () => {
                   name="message" 
                   value={formData.message} 
                   onChange={handleInputChange} 
-                  placeholder="Contanos brevemente qué te motiva..." 
+                  placeholder="Contanos brevemente qué te motiva¡¡¡¡¡¡¡¡¡¡..." 
                   className="min-h-[100px]"
                 />
               </div>
