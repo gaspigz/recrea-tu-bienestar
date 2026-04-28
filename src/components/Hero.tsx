@@ -61,7 +61,7 @@ const Hero = () => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-white/40 text-white/60 hover:border-white hover:text-white hover:bg-white/10 transition-all duration-300 text-lg px-8 py-4" 
+                className="border-white/40 text-white/50 hover:border-white hover:text-white hover:bg-white/10 transition-all duration-300 text-lg px-8 py-4" 
                 onClick={() => document.getElementById('benefits')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Conocer Más
