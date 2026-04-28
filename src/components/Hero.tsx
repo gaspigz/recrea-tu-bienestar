@@ -20,8 +20,9 @@ const Hero = () => {
    
   </span>
   <span className="block text-lg md:text-xl font-extrabold mt-1">
-   Vé al pie de esta página,  <strong className="text-white underline decoration-wavy"> al APARTADO COMUNIDAD </strong> y obtén <strong className="text-white underline decoration-wavy"> un regalo sorpresa </strong>.
-  </span>
+  Ve al pie de esta página,  <strong className="text-white underline decoration-wavy">  al APARTADO COMUNIDAD </strong> y obtén <strong className="text-white underline decoration-wavy">  y obtené un regalo sorpresa. </strong>.
+ 
+ </span>
 </div>
 
       {/* Hero Section */}
