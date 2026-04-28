@@ -167,20 +167,31 @@ const Comunidad = () => {
               <h3 className="text-green-800 font-bold text-xl mb-4">✅ ¡Bienvenido a la comunidad!</h3>
               <p className="text-green-700 mb-6">Ya puedes entrar al grupo de WhatsApp y descargar tu material de regalo.</p>
               
-              <div className="flex flex-col space-y-4"> 
-                <a href="/E-BOOK-BienestarEnJuego.pdf" download className="w-full">
-                  <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white transition-all h-12">
-                    Paso 1: 📥 Baja Tu E-BOOK de regalo (PDF)
-                  </Button>
-                </a>
+             
+<div className="flex flex-col space-y-4 w-full"> 
+  {/* Botón Paso 1 */}
+  <a href="/E-BOOK-BienestarEnJuego.pdf" download className="w-full block">
+    <Button 
+      type="button"
+      className="w-full h-14 text-lg font-bold shadow-md bg-primary hover:bg-primary/90 text-white transition-all"
+    >
+      Paso 1: 📥 Baja Tu E-BOOK de regalo (PDF)
+    </Button>
+  </a>
 
-                <Button 
-                  className="w-full h-12 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg shadow-lg"
-                  onClick={() => window.open("https://chat.whatsapp.com/HeY10ZbEd348MyFFvydZLz", "_blank")}
-                >
-                   Paso 2: Entra al GRUPO AHORA 
-                </Button>
-              </div>
+  {/* Botón Paso 2 */}
+  <Button 
+    type="button"
+    className="w-full h-14 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg shadow-md transition-all"
+    onClick={() => window.open("https://chat.whatsapp.com/HeY10ZbEd348MyFFvydZLz", "_blank")}
+  >
+     Paso 2: 🤝 Entra al GRUPO AHORA 
+  </Button>
+</div>
+
+
+
+
             </div>
           )}
         </div>
