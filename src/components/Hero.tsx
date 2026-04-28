@@ -12,7 +12,7 @@ const Hero = () => {
       { name: "Detalles", id: "WorkshopDetails" },
     { name: "Precios", id: "Pricing" },
     { name: "Comunidad", id: "comunidad" },
-    { name: "Inscripción", id: "registration" }
+    { name: "Inscripción al Taller", id: "registration" }
   ];
 
   return (
