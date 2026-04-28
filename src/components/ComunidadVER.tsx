@@ -97,15 +97,24 @@ const Comunidad = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-green-500 font-bold text-lg">📅</span>
-                  <span>Calendario 2026 de actividades</span>
+                  <span>Calendario 2026 de actividades y novedades</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-green-500 font-bold text-lg">🤝</span>
-                  <span>Acompañamiento diario grupal</span>
+                  <span>Círculo exclusivo de bienestar</span>
                 </div>
+
+
+ 
+                <div className="flex items-center gap-2">
+                  <span className="text-green-500 font-bold text-lg">🤝</span>
+                  <span>Inspiración y Píldoras de Bienestar</span>
+                </div>
+
+                
                 <div className="flex items-center gap-2">
                   <span className="text-green-500 font-bold text-lg">✨</span>
-                  <span>Tips exclusivos para el taller intensivo</span>
+                  <span>Secretos y adelantos del Taller Recrea tu bienestar</span>
                 </div>
               </div>
 
