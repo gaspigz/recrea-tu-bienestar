@@ -121,7 +121,6 @@ const Comunidad = () => {
                   <span className="text-green-500 font-bold text-lg">✨</span>
                   <span>Otras sorpresas...</span>
                 </div>
-              </div>
               
 
               <form onSubmit={handleSubmit} className="space-y-6">
