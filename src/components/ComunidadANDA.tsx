@@ -18,10 +18,6 @@ const Comunidad = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   
-  // URL del eBook y del Grupo de WhatsApp
-  const EBOOK_URL = "https://tu-link-de-google-drive-aqui.com"; // REEMPLAZÁ ESTO CON TU LINK
-  const WHATSAPP_GROUP_LINK = "https://chat.whatsapp.com/HeY10ZbEd348MyFFvydZLz";
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -31,7 +27,7 @@ const Comunidad = () => {
   });
 
   // CONFIGURACIÓN DE WHATSAPP (Rotación entre dos números para repartir consultas)
-  const nrosWhatsApp = ["5493413128282", "5493413128282"]; 
+  const nrosWhatsApp = ["5493413128282", "5493413128282"]; // Cambiá el segundo si son distintos
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -43,6 +39,10 @@ const Comunidad = () => {
     if (formData.website) return;
     setIsSubmitting(true);
 
+    // Elegimos un número al azar para esta sesión
+    const nroAsignado = nrosWhatsApp[Math.floor(Math.random() * nrosWhatsApp.length)];
+
+    // Definimos los parámetros para EmailJS (corrigiendo el error de TypeScript)
     const templateParams: Record<string, string> = {
       name: formData.name,      
       email: formData.email,    
@@ -56,7 +56,7 @@ const Comunidad = () => {
     };
 
     try {
-      // 1. Envío al Admin
+      // 1. Envío al Admin (Vos)
       await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID, 
         EMAILJS_CONFIG.ADMIN_TEMPLATE_ID, 
@@ -64,7 +64,7 @@ const Comunidad = () => {
         EMAILJS_CONFIG.PUBLIC_KEY
       );
 
-      // 2. Envío al Usuario
+      // 2. Envío al Usuario (Bienvenida)
       await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID, 
         EMAILJS_CONFIG.USER_TEMPLATE_ID, 
@@ -73,7 +73,7 @@ const Comunidad = () => {
       );
 
       setIsSubmitted(true);
-      toast({ title: "¡Datos enviados!", description: "Ya podés descargar tu regalo y unirte." });
+      toast({ title: "¡Datos enviados!", description: "Ya podés unirte al grupo." });
     } catch (error) {
       console.error("Error EmailJS:", error);
       toast({ title: "Error", description: "No se pudo enviar el registro.", variant: "destructive" });
@@ -88,11 +88,12 @@ const Comunidad = () => {
         <div className="max-w-2xl mx-auto bg-white rounded-3xl shadow-xl p-8 border border-primary/10">
           <h2 className="text-3xl font-bold mb-6 text-primary flex flex-col items-center">
             <span>Únete a Nuestra Comunidad</span>
-            <span className="text-2xl opacity-90 font-medium">Recreá tu bienestar y recibí un regalo.</span>
+            <span className="text-2xl opacity-90 font-medium">Recrea tu bienestar y recibe un regalo.</span>
           </h2>
           
           {!isSubmitted ? (
             <form onSubmit={handleSubmit} className="space-y-6 text-left">
+              {/* Campo oculto anti-spam */}
               <input type="text" name="website" value={formData.website} onChange={handleInputChange} className="hidden" />
               
               <div className="space-y-2">
@@ -124,43 +125,20 @@ const Comunidad = () => {
               </div>
 
               <Button type="submit" className="w-full h-12 text-lg font-bold" disabled={isSubmitting}>
-                {isSubmitting ? "Enviando..." : "🎁 Obtener mi regalo y Unirme"}
+                {isSubmitting ? "Enviando..." : "📱 Unirme al WhatsApp"}
               </Button>
             </form>
           ) : (
             <div className="animate-in fade-in zoom-in duration-500">
               <div className="bg-green-50 rounded-2xl p-8 border border-green-200">
-                <h3 className="text-green-800 font-bold text-xl mb-2">✅ ¡Registro completado!</h3>
-                <p className="text-green-700 mb-6">Seguí estos pasos para obtener tu beneficio:</p>
-                
-                <div className="space-y-4">
-                  {/* PASO 1: DESCARGA */}
-                  <div className="bg-white p-4 rounded-xl border border-green-100 shadow-sm flex flex-col items-center">
-                    <span className="text-xs font-bold text-green-600 mb-2 uppercase tracking-wider">Paso 1: Tu regalo</span>
-                    <Button 
-                      variant="outline"
-                      className="w-full h-12 border-primary text-primary hover:bg-primary/5 font-bold"
-                      onClick={() => window.open(EBOOK_URL, "_blank")}
-                    >
-                      📥 DESCARGAR EBOOK AHORA
-                    </Button>
-                  </div>
-
-                  {/* PASO 2: WHATSAPP */}
-                  <div className="bg-white p-4 rounded-xl border border-green-100 shadow-sm flex flex-col items-center">
-                    <span className="text-xs font-bold text-green-600 mb-2 uppercase tracking-wider">Paso 2: Comunidad</span>
-                    <Button 
-                      className="w-full h-14 bg-[#25D366] hover:bg-[#128C7E] text-white text-lg font-bold shadow-lg"
-                      onClick={() => window.open(WHATSAPP_GROUP_LINK, "_blank")}
-                    >
-                      📱 ENTRAR AL GRUPO DE WHATSAPP
-                    </Button>
-                  </div>
-                </div>
-
-                <p className="mt-6 text-xs text-green-600 italic">
-                  También enviamos una copia a tu mail. ¡Nos vemos en el grupo!
-                </p>
+                <h3 className="text-green-800 font-bold text-xl mb-4">✅ ¡Registro completado!</h3>
+                <p className="text-green-700 mb-6">Hacé clic abajo para entrar al grupo de WhatsApp de la comunidad.</p>
+                <Button 
+                  className="w-full h-14 bg-[#25D366] hover:bg-[#128C7E] text-white text-lg font-bold shadow-lg"
+                  onClick={() => window.open(`https://chat.whatsapp.com/HeY10ZbEd348MyFFvydZLz`, "_blank")}
+                >
+                  ENTRAR AL GRUPO AHORA
+                </Button>
               </div>
             </div>
           )}
