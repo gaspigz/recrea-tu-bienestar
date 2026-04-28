@@ -96,7 +96,7 @@ const Comunidad = () => {
 
           {!isSubmitted ? (
             <>
-              {/* Lista de Beneficios Optimizada */}
+              {/* Lista de Beneficios Completa (6 ítems) */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8 bg-primary/5 p-6 rounded-2xl border border-primary/10 text-sm">
                 <div className="flex items-center gap-2">
                   <span className="text-lg">🎁</span>
@@ -106,13 +106,23 @@ const Comunidad = () => {
                   <span className="text-lg">📅</span>
                   <span>Calendario 2026 y novedades</span>
                 </div>
+                
+                <div className="flex items-center gap-2">
+                  <span className="text-lg">💡</span>
+                  <span>Círculo exclusivo de bienestar</span>
+                </div>
                 <div className="flex items-center gap-2">
                   <span className="text-lg">💡</span>
                   <span>Píldoras y motivación semanal</span>
                 </div>
+
                 <div className="flex items-center gap-2">
                   <span className="text-lg">✨</span>
                   <span>Secretos y adelantos del Taller</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-lg">✨</span>
+                  <span>Otras sorpresas...</span>
                 </div>
               </div>
 
