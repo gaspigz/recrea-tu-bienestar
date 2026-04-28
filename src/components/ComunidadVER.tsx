@@ -128,37 +128,35 @@ const Comunidad = () => {
                 {isSubmitting ? "Enviando..." : "Solicitar Acceso"}
               </Button>
             </form>
-          ) : (
-            <div className="text-center bg-green-50 p-8 rounded-2xl border border-green-200 animate-in fade-in zoom-in">
-              <h3 className="text-green-800 font-bold text-xl mb-4">✅ ¡Datos recibidos!</h3>
-              <p className="text-green-700 mb-6">Ya puedes entrar al grupo de WhatsApp de Recrea tu Bienestar.</p>
-              
-              
-              
-              
-               {/* Botón 1: Descargar Calendario */}
-          <a href="/E-BOOK-BienestarEnJuego.pdf" download="Tu E-BOOK de regalo" className="w-full sm:w-auto">
-            <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white transition-all">
-              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
-             Baja Tu E-BOOK de regalo: Bienestar en juego (PDF)
+         ) : (
+  <div className="text-center bg-green-50 p-8 rounded-2xl border border-green-200 animate-in fade-in zoom-in">
+    <h3 className="text-green-800 font-bold text-xl mb-4">✅ ¡Datos recibidos!</h3>
+    <p className="text-green-700 mb-6">Ya puedes entrar al grupo de WhatsApp de Recrea tu Bienestar.</p>
+    
+    {/* CONTENEDOR CON ESPACIADO VERTICAL */}
+    <div className="flex flex-col space-y-4"> 
+      
+      {/* Botón 1: Descargar E-BOOK */}
+      <a href="/E-BOOK-BienestarEnJuego.pdf" download="Tu E-BOOK de regalo" className="w-full">
+        <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white transition-all h-12">
+          <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          Baja Tu E-BOOK de regalo: Bienestar en juego (PDF)
+        </Button>
+      </a>
 
-            </Button>
-          </a>
-              
-              
-              
-              
-              
-              <Button 
-                className="w-full h-14 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg shadow-lg"
-                onClick={() => window.open("https://chat.whatsapp.com/HeY10ZbEd348MyFFvydZLz", "_blank")}
-              >
-                📱 ENTRA AL GRUPO AHORA PARA SUMARTE A LA COMUNIDAD
-              </Button>
-            </div>
-          )}
+      {/* Botón 2: WhatsApp */}
+      <Button 
+        className="w-full h-12 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg shadow-lg"
+        onClick={() => window.open("https://chat.whatsapp.com/HeY10ZbEd348MyFFvydZLz", "_blank")}
+      >
+        ENTRA AL GRUPO AHORA
+      </Button>
+      
+    </div>
+  </div>
+)}
         </div>
       </div>
     </section>
