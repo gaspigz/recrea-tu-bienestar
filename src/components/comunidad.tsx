@@ -18,8 +18,6 @@ const Comunidad = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   
-  // URL del eBook y del Grupo de WhatsApp
-  const EBOOK_URL = "https://tu-link-de-google-drive-aqui.com"; // REEMPLAZÁ ESTO CON TU LINK
   const WHATSAPP_GROUP_LINK = "https://chat.whatsapp.com/HeY10ZbEd348MyFFvydZLz";
 
   const [formData, setFormData] = useState({
@@ -27,11 +25,8 @@ const Comunidad = () => {
     email: "",
     phone: "",
     message: "",
-    website: "", // Honeypot anti-spam
+    website: "", 
   });
-
-  // CONFIGURACIÓN DE WHATSAPP (Rotación entre dos números para repartir consultas)
-  const nrosWhatsApp = ["5493413128282", "5493413128282"]; 
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -56,21 +51,8 @@ const Comunidad = () => {
     };
 
     try {
-      // 1. Envío al Admin
-      await emailjs.send(
-        EMAILJS_CONFIG.SERVICE_ID, 
-        EMAILJS_CONFIG.ADMIN_TEMPLATE_ID, 
-        templateParams, 
-        EMAILJS_CONFIG.PUBLIC_KEY
-      );
-
-      // 2. Envío al Usuario
-      await emailjs.send(
-        EMAILJS_CONFIG.SERVICE_ID, 
-        EMAILJS_CONFIG.USER_TEMPLATE_ID, 
-        templateParams, 
-        EMAILJS_CONFIG.PUBLIC_KEY
-      );
+      await emailjs.send(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.ADMIN_TEMPLATE_ID, templateParams, EMAILJS_CONFIG.PUBLIC_KEY);
+      await emailjs.send(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.USER_TEMPLATE_ID, templateParams, EMAILJS_CONFIG.PUBLIC_KEY);
 
       setIsSubmitted(true);
       toast({ title: "¡Datos enviados!", description: "Ya podés descargar tu regalo y unirte." });
@@ -113,14 +95,7 @@ const Comunidad = () => {
 
               <div className="space-y-2">
                 <Label htmlFor="message">¿Por qué quieres sumarte? (Opcional)</Label>
-                <Textarea 
-                  id="message" 
-                  name="message" 
-                  value={formData.message} 
-                  onChange={handleInputChange} 
-                  placeholder="Contanos brevemente qué te motiva..." 
-                  className="min-h-[100px]"
-                />
+                <Textarea id="message" name="message" value={formData.message} onChange={handleInputChange} placeholder="Contanos brevemente qué te motiva..." className="min-h-[100px]" />
               </div>
 
               <Button type="submit" className="w-full h-12 text-lg font-bold" disabled={isSubmitting}>
@@ -134,21 +109,29 @@ const Comunidad = () => {
                 <p className="text-green-700 mb-6">Seguí estos pasos para obtener tu beneficio:</p>
                 
                 <div className="space-y-4">
-                  {/* PASO 1: DESCARGA */}
-                  <div className="bg-white p-4 rounded-xl border border-green-100 shadow-sm flex flex-col items-center">
-                    <span className="text-xs font-bold text-green-600 mb-2 uppercase tracking-wider">Paso 1: Tu regalo</span>
+                  {/* PASO 1: DESCARGAS */}
+                  <div className="bg-white p-6 rounded-xl border border-green-100 shadow-sm flex flex-col gap-3">
+                    <span className="text-xs font-bold text-green-600 uppercase tracking-wider">Paso 1: Tus Regalos</span>
+                    
+                    {/* Botón Ebook */}
                     <Button 
-                      variant="outline"
-                      className="w-full h-12 border-primary text-primary hover:bg-primary/5 font-bold"
+                      className="w-full h-12 bg-primary text-white font-bold"
                       onClick={() => window.open("/E-BOOK-BienestarEnJuego.pdf", "_blank")}
                     >
-                      📥 DESCARGAR EBOOK AHORA
+                      📥 DESCARGAR EBOOK
                     </Button>
+
+                    {/* Botón Calendario */}
+                    <a href="/2026HorariosRecreaTuBienestar.png" download="Calendario_2026.png" className="w-full">
+                      <Button variant="outline" className="w-full h-12 border-primary text-primary hover:bg-primary/5 font-bold">
+                        📅 DESCARGAR CALENDARIO 2026
+                      </Button>
+                    </a>
                   </div>
 
                   {/* PASO 2: WHATSAPP */}
-                  <div className="bg-white p-4 rounded-xl border border-green-100 shadow-sm flex flex-col items-center">
-                    <span className="text-xs font-bold text-green-600 mb-2 uppercase tracking-wider">Paso 2: Comunidad</span>
+                  <div className="bg-white p-6 rounded-xl border border-green-100 shadow-sm flex flex-col gap-3">
+                    <span className="text-xs font-bold text-green-600 uppercase tracking-wider">Paso 2: Comunidad</span>
                     <Button 
                       className="w-full h-14 bg-[#25D366] hover:bg-[#128C7E] text-white text-lg font-bold shadow-lg"
                       onClick={() => window.open(WHATSAPP_GROUP_LINK, "_blank")}
