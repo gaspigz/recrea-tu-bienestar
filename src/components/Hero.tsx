@@ -17,29 +17,29 @@ const Hero = () => {
   return <>
       {/* Gift Banner */}
       
-<div className="bg-success text-success-foreground px-5 py-4 text-center border-b-2 border-emerald-600 shadow-md">
-  <span className="text-2xl mr-2">🎁</span>
-  <span className="text-xl md:text-2xl font-bold uppercase tracking-wide">
-    ¡Súmate a nuestra comunidad!
-  </span>
+
+<div className="bg-success text-success-foreground px-5 py-6 text-center border-b-2 border-emerald-600 shadow-lg">
+  {/* Título Principal */}
+  <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tighter flex justify-center items-center gap-2 mb-2">
+    <span>🎁</span> ¡Un regalo te espera!
+  </h2>
   
-  {/* Frase sobre el propósito de la comunidad */}
-  <p className="text-base md:text-lg mt-2 opacity-95 max-w-2xl mx-auto leading-tight">
-    Un espacio para <strong>mantener encendido tu bienestar</strong> cada día, compartir experiencias y prepararnos para transformar nuestro estrés en energía vital.
+  {/* Propósito sutil */}
+  <p className="text-base md:text-lg opacity-90 max-w-2xl mx-auto leading-tight italic mb-4">
+    Unite a nuestra comunidad para mantener encendido tu bienestar diario y compartir este camino de transformación.
   </p>
 
-  <span className="block text-lg md:text-xl mt-3 font-medium">
-    Haz clic en el 
+  {/* Acción Destacada */}
+  <div className="flex flex-col md:flex-row justify-center items-center gap-3">
+    <span className="text-lg font-semibold">¿Te sumás?</span>
     <button 
       onClick={scrollToComunidad}
-      className="mx-2 px-4 py-1 rounded-full bg-white/20 hover:bg-white/40 border border-white/50 text-white font-black transition-all duration-300 animate-pulse shadow-[0_0_15px_rgba(255,255,255,0.4)]"
+      className="px-6 py-2 rounded-full bg-white text-success font-black text-xl hover:bg-emerald-50 transition-all duration-300 shadow-[0_4px_15px_rgba(0,0,0,0.1)] animate-bounce"
     >
-      APARTADO COMUNIDAD
-    </button> 
-    y obtené tu regalo.
-  </span>
+      ¡SÍ, QUIERO MI REGALO!
+    </button>
+  </div>
 </div>
-
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center gradient-hero overflow-hidden">
         <div className="absolute inset-0 z-0">
