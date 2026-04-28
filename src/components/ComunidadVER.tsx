@@ -23,7 +23,7 @@ const Comunidad = () => {
     email: "",
     phone: "",
     message: "",
-    website: "", // Honeypot
+    website: "", // Honeypot para evitar spam
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -64,11 +64,18 @@ const Comunidad = () => {
         EMAILJS_CONFIG.PUBLIC_KEY
       );
 
-      toast({ title: "¡Registrado!", description: "Revisa tu mail, te dejamos una constancia de tu registración en la comunidad. Ya puedes ingresar a la misma." });
+      toast({ 
+        title: "¡Registrado!", 
+        description: "Revisa tu mail, ya puedes ingresar a la comunidad." 
+      });
       setIsSubmitted(true);
     } catch (error) {
       console.error("Error EmailJS:", error);
-      toast({ title: "Error", description: "No se pudo enviar el registro.", variant: "destructive" });
+      toast({ 
+        title: "Error", 
+        description: "No se pudo enviar el registro.", 
+        variant: "destructive" 
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -89,39 +96,25 @@ const Comunidad = () => {
 
           {!isSubmitted ? (
             <>
-              {/* Lista de Beneficios */}
+              {/* Lista de Beneficios Optimizada */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8 bg-primary/5 p-6 rounded-2xl border border-primary/10 text-sm">
                 <div className="flex items-center gap-2">
-                  <span className="text-green-500 font-bold text-lg">🎁</span>
+                  <span className="text-lg">🎁</span>
                   <span>E-book "Bienestar en Juego" GRATIS</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-green-500 font-bold text-lg">📅</span>
-                  <span>Calendario 2026 de actividades y novedades</span>
+                  <span className="text-lg">📅</span>
+                  <span>Calendario 2026 y novedades</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-green-500 font-bold text-lg">🤝</span>
-                  <span>Círculo exclusivo de bienestar</span>
+                  <span className="text-lg">💡</span>
+                  <span>Píldoras y motivación semanal</span>
                 </div>
-
-
- 
                 <div className="flex items-center gap-2">
-                  <span className="text-green-500 font-bold text-lg">🤝</span>
-                  <span>Inspiración y Píldoras de Bienestar</span>
+                  <span className="text-lg">✨</span>
+                  <span>Secretos y adelantos del Taller</span>
                 </div>
-
-                
-                <div className="flex items-center gap-2">
-                  <span className="text-green-500 font-bold text-lg">✨</span>
-                  <span>Secretos y adelantos del Taller Recrea tu bienestar</span>
-                </div>
-                
-               <div className="flex items-center gap-2">
-                  <span className="text-green-500 font-bold text-lg">✨</span>
-                  <span>Otras sorpresas...</span>
-                </div>
-              
+              </div>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <input type="text" name="website" value={formData.website} onChange={handleInputChange} className="hidden" />
@@ -143,7 +136,7 @@ const Comunidad = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message">¿Por qué quieres sumarte a nuestra comunidad? (Opcional)</Label>
+                  <Label htmlFor="message">¿Por qué quieres sumarte? (Opcional)</Label>
                   <Textarea 
                     id="message" 
                     name="message" 
@@ -165,7 +158,7 @@ const Comunidad = () => {
               <p className="text-green-700 mb-6">Ya puedes entrar al grupo de WhatsApp y descargar tu material de regalo.</p>
               
               <div className="flex flex-col space-y-4"> 
-                <a href="/E-BOOK-BienestarEnJuego.pdf" download="Tu E-BOOK de regalo" className="w-full">
+                <a href="/E-BOOK-BienestarEnJuego.pdf" download className="w-full">
                   <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white transition-all h-12">
                     Paso 1: 📥 Baja Tu E-BOOK de regalo (PDF)
                   </Button>
@@ -175,7 +168,7 @@ const Comunidad = () => {
                   className="w-full h-12 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg shadow-lg"
                   onClick={() => window.open("https://chat.whatsapp.com/HeY10ZbEd348MyFFvydZLz", "_blank")}
                 >
-                   Paso 2: Entra al GRUPO AHORA
+                   Paso 2: Entra al GRUPO AHORA 
                 </Button>
               </div>
             </div>
