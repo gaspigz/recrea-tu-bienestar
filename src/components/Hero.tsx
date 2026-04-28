@@ -16,23 +16,25 @@ const Hero = () => {
 
   return <>
       {/* Gift Banner */}
-      <div className="bg-success text-success-foreground px-5 py-4 text-center border-b-2 border-emerald-600 animate-pulse-glow shadow-md">
-        <span className="text-2xl mr-2">🎁</span>
-        <span className="text-xl md:text-2xl font-bold uppercase tracking-wide">
-          ¡Súmate a nuestra comunidad!
-        </span>
-        <span className="block text-lg md:text-xl font-medium mt-1">
-          Ve al pie de esta página al 
-          {/* Texto que titila/luz destacada */}
-          <button 
-            onClick={scrollToComunidad}
-            className="mx-2 text-white font-black underline decoration-wavy animate-pulse drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] hover:scale-105 transition-transform cursor-pointer"
-          >
-            APARTADO COMUNIDAD
-          </button> 
-          y obtené un regalo sorpresa.
-        </span>
-      </div>
+      
+
+<div className="bg-success text-success-foreground px-5 py-4 text-center border-b-2 border-emerald-600 shadow-md">
+  <span className="text-2xl mr-2">🎁</span>
+  <span className="text-xl md:text-2xl font-bold uppercase tracking-wide">
+    ¡Súmate a nuestra comunidad!
+  </span>
+  <span className="block text-lg md:text-xl mt-2">
+    Haz clic en el 
+    <button 
+      onClick={scrollToComunidad}
+      className="mx-2 px-3 py-1 rounded-full bg-white/20 hover:bg-white/40 border border-white/50 text-white font-black transition-all duration-300 animate-pulse shadow-[0_0_15px_rgba(255,255,255,0.5)] hover:shadow-[0_0_20px_rgba(255,255,255,0.8)]"
+    >
+      APARTADO COMUNIDAD
+    </button> 
+    y obtené un regalo sorpresa.
+  </span>
+</div>
+
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center gradient-hero overflow-hidden">
