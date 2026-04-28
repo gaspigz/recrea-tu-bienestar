@@ -9,17 +9,17 @@ const Pricing = () => {
   const pricingOptions = [
     {
       title: "Individual",
-      price: "$60.000",
+      price: "$50.000",
       period: "/mes",
       originalPrice: "$75.000",
-      discount: "25% OFF",
+      discount: "33.33% OFF",
       popular: false,
       features: [
-        "Acceso a los dos encuentros quincenales",
+        "Acceso para UNA persona a los DOS ENCUENTROS quincenales",
         "Material de apoyo digital",
         "Grupo de WhatsApp exclusivo",
         "Comunidad de bienestar",
-        "Consultar precio por un encuentro por mes"
+        "Consultar precio por persona a un SOLO encuentro por mes"
       ],
       observation: "Ideal para quienes buscan una experiencia individual de crecimiento y bienestar",
       buttonText: "Inscribirme",
@@ -27,18 +27,18 @@ const Pricing = () => {
     },
     {
       title: "Promoción Dúo",
-      price: "$50.000",
+      price: "$40.000",
       period: "cada uno por mes",
       originalPrice: "$60.000",
-      discount: "20% OFF",
+      discount: "33.33% OFF",
       popular: true,
       features: [
-        "Acceso para dos personas a los encuentros",
+        "Acceso para DOS personas a los DOS ENCUENTROS quincenales",
         "Material de apoyo digital",
         "Grupo de WhatsApp exclusivo",
         "Comunidad de bienestar",
         "Actividades especiales para parejas",
-        "Consultar precio por un encuentro por mes"
+        "Consultar precio por PAREJAS a un SOLO encuentro por mes"
       ],
       observation: "Ideal para compartir el proceso con una pareja, amigo o familiar, potenciando la transformación a través del apoyo mutuo.",
       buttonText: "Inscribirnos",
@@ -46,17 +46,17 @@ const Pricing = () => {
     },
     {
       title: "Pago Anual (Financiado)",
-      price: "$50.000",
-      period: "por 12 cuotas - Tarjeta Visa",
+      price: "cuotas de $40.000",
+      period: "cada una por 12 meses - Tarjeta Visa",
       originalPrice: null,
       discount: null,
       popular: false,
       features: [
-        "Acceso a encuentros mayo a diciembre 2026",
+        "Acceso a todos los encuentros desde mayo a diciembre 2026",
         "Material de apoyo digital",
         "Grupo de WhatsApp exclusivo",
         "Comunidad de bienestar",
-        "Pago anual financiado en 12 cuotas"
+        "Pago anual para una persona, financiado en 12 cuotas"
       ],
       observation: "Ideal para quienes están decididos a sostener un compromiso a largo plazo con su crecimiento, asegurando su lugar todo el año.",
       buttonText: "Inscribirme",
