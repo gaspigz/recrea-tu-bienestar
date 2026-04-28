@@ -15,10 +15,12 @@ const Hero = () => {
 <div className="bg-success text-success-foreground px-5 py-4 text-center border-b-2 border-emerald-600 animate-pulse-glow shadow-md">
   <span className="text-2xl mr-2">🎁</span>
   <span className="text-xl md:text-2xl font-bold uppercase tracking-wide">
-    ¡Promoción Exclusiva!
+   
+   ¡Súmate a nuestra comunidad!    { /* ¡Promoción Exclusiva! */ }
+   
   </span>
   <span className="block text-lg md:text-xl font-extrabold mt-1">
-   🎁  <strong className="text-white underline decoration-wavy"> ¡Súmate a nuestra comunidad! </strong> y obtén <strong className="text-white underline decoration-wavy"> un regalo sorpresa </strong>.
+   Vé al pie de esta página,  <strong className="text-white underline decoration-wavy"> al APARTADO COMUNIDAD </strong> y obtén <strong className="text-white underline decoration-wavy"> un regalo sorpresa </strong>.
   </span>
 </div>
 
