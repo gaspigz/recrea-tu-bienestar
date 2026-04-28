@@ -47,7 +47,7 @@ const Pricing = () => {
     {
       title: "Pago Anual (Financiado)",
       price: "cuotas de $40.000",
-      period: "cada una por 12 meses - Tarjeta Visa",
+      period: "por 12 meses - Tarjeta Visa",
       originalPrice: null,
       discount: null,
       popular: false,
