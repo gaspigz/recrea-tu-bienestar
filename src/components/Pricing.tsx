@@ -91,7 +91,7 @@ const Pricing = () => {
   ];
 
   return (
-    <section id="Pricing" className="py-20 gradient-warm">
+    <section id="pricing" className="py-20 gradient-warm">
       <div className="container mx-auto px-4">
         
         <div className="text-center mb-10">
