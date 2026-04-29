@@ -3,14 +3,17 @@ import heroImage from "@/assets/hero-wellness.jpg";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const navLinks = [
     { name: "Inicio", id: "hero" },
     { name: "Beneficios", id: "benefits" },
-      { name: "Detalles", id: "workshop-details" },
-    { name: "Precios", id: "Pricing" },
+    { name: "Detalles", id: "details" }, // Cambiado a 'details'
+    { name: "Precios", id: "pricing" },  // Cambiado a 'pricing' minúscula
     { name: "Comunidad", id: "comunidad" },
     { name: "Inscripción al Taller", id: "registration" }
   ];
@@ -51,7 +54,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* 3. Hero Section (Ajustada en ancho) */}
+      {/* 3. Hero Section */}
       <section id="hero" className="relative min-h-screen flex items-center gradient-hero overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src={heroImage} alt="Personas disfrutando de actividades de bienestar" className="w-full h-full object-cover opacity-20" />
@@ -59,7 +62,6 @@ const Hero = () => {
         </div>
 
         <div className="container relative z-10 mx-auto px-4 py-20">
-          {/* Se cambió de max-w-4xl a max-w-3xl para que sea más angosto */}
           <div className="max-w-3xl mx-auto text-center text-white animate-slide-up">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               Recreá tu
@@ -67,7 +69,7 @@ const Hero = () => {
             </h1>
             
             <p className="text-xl md:text-2xl mb-8 leading-relaxed">
-              Un taller único que combina <strong>creatividad</strong>, <strong>buen humor</strong>, <strong>conexión</strong> y <strong>alivio del estrés</strong> a través de la risa y el juego. Incluye prácticas y dinámicas de relajación, observación consciente y aprendizaje vivencial. Un espacio para ejercitar el liderazgo personal, el autoconocimiento y un cambio vital que transformará tu relación con el estrés diario, garantizando tu bienestar integral.
+              Un taller único que combina <strong>creatividad</strong>, <strong>buen humor</strong>, <strong>conexión</strong> y <strong>alivio del estrés</strong> a través de la risa y el juego.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -86,10 +88,6 @@ const Hero = () => {
             </div>
           </div>
         </div>
-
-        {/* Decorative Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-accent/20 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-primary-glow/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }}></div>
       </section>
     </>
   );
