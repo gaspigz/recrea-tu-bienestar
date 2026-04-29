@@ -9,13 +9,31 @@ const Hero = () => {
     }
   };
 
+    {/* 2. Gift Banner */}
+      <div className="bg-success text-success-foreground px-5 py-6 text-center border-b-2 border-emerald-600 shadow-lg">
+        <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tighter flex justify-center items-center gap-2 mb-2">
+          <span>🎁</span> ¡Un regalo te espera!
+        </h2>
+        <p className="text-base md:text-lg opacity-90 max-w-2xl mx-auto leading-tight italic mb-4">
+          Unite a nuestra comunidad para mantener encendido tu bienestar diario y compartir este camino de transformación.
+        </p>
+        <div className="flex flex-col md:flex-row justify-center items-center gap-3">
+          <span className="text-lg font-semibold">¿Te sumás?</span>
+          <button 
+            onClick={() => scrollToSection('comunidad')}
+            className="px-6 py-2 rounded-full bg-white text-success font-black text-xl hover:bg-emerald-50 transition-all duration-300 shadow-[0_4px_15px_rgba(0,0,0,0.1)] animate-bounce"
+          >
+            ¡SÍ, QUIERO MI REGALO!
+          </button>
+        </div>
+      </div>
   const navLinks = [
     { name: "Inicio", id: "hero" },
     { name: "Beneficios", id: "benefits" },
     { name: "Detalles", id: "workshop-details" }, // Sincronizado
     { name: "Precios", id: "pricing" },           // Sincronizado con Pricing.tsx
     { name: "Comunidad", id: "comunidad" },
-    { name: "Inscripción", id: "registration" }
+    { name: "Inscripción al Taller", id: "registration" }
   ];
 
   return (
