@@ -24,7 +24,6 @@ const Pricing = () => {
     { m: "octubre", d: "02 y 16" }, { m: "noviembre", d: "06 y 20" }, { m: "diciembre", d: "04 y 18" }
   ];
 
-  // Función para determinar si una fecha ya pasó
   const estaVencida = (mes: string, diaStr: string) => {
     const mesIndex = monthMap[mes.toLowerCase()];
     const dias = diaStr.match(/\d+/g);
@@ -92,10 +91,10 @@ const Pricing = () => {
   ];
 
   return (
-    <section id="pricing" className="py-20 gradient-warm">
+    /* IMPORTANTE: El id debe ser "Pricing" para que el Hero lo encuentre */
+    <section id="Pricing" className="py-20 gradient-warm">
       <div className="container mx-auto px-4">
         
-        {/* ENCABEZADO */}
         <div className="text-center mb-10">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
             Cronograma 2026 - Elegí tu Forma de Participar
@@ -127,7 +126,6 @@ const Pricing = () => {
           </p>
         </div>
 
-        {/* BOTONES DE DESCARGA */}
         <div className="mb-16 flex flex-col sm:flex-row justify-center items-center gap-4 w-full">
           <a href="/2026HorariosRecreaTuBienestar.png" download="Calendario_2026.png" className="w-full sm:w-auto">
             <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white transition-all">
@@ -155,7 +153,6 @@ const Pricing = () => {
           </a>
         </div>
 
-        {/* GRILLA DE PRECIOS */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {pricingOptions.map((option, index) => (
             <div 
