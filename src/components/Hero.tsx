@@ -13,7 +13,7 @@ const Hero = () => {
     { name: "Inicio", id: "hero" },
     { name: "Beneficios", id: "benefits" },
     { name: "Detalles", id: "workshop-details" }, // Sincronizado
-    { name: "Precios", id: "Pricing" },           // Sincronizado con Pricing.tsx
+    { name: "Precios", id: "pricing" },           // Sincronizado con Pricing.tsx
     { name: "Comunidad", id: "comunidad" },
     { name: "Inscripción", id: "registration" }
   ];
