@@ -3,8 +3,8 @@ const WorkshopDetails = () => {
     {
       icon: "📅",
       title: "Fecha de Inicio",
-      value: "Viernes 24 de Abril 2026",
-      description: "Comienza tu transformación - ¡No te lo pierdas!"
+      value: "Viernes 24 de Abril 2026 o busca tu fecha ideal en el calendario",
+      description: "Comienza tu transformación - ¡No te lo pierdas! "
     },
     {
       icon: "⏰",
