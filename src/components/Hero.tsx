@@ -71,7 +71,7 @@ const Hero = () => {
               <Button size="lg" className="bg-white text-primary hover:bg-accent hover:text-primary-foreground text-lg px-8 py-4" onClick={() => scrollToSection('registration')}>
                 Inscribirme Ahora
               </Button>
-              <Button variant="outline" size="lg" className="border-white/40 text-white hover:bg-white/10 text-lg px-8 py-4" onClick={() => scrollToSection('benefits')}>
+              <Button variant="outline" size="lg" className="border-white/40 text-success hover:bg-success/10 text-lg px-8 py-4" onClick={() => scrollToSection('benefits')}>
                 Conocer Más
               </Button>
             </div>
