@@ -64,7 +64,8 @@ const Hero = () => {
               Recreá tu <span className="block text-accent">Bienestar</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 leading-relaxed">
-              Un taller único que combina <strong>creatividad</strong>, <strong>buen humor</strong> y <strong>alivio del estrés</strong>.
+              Un taller único que combina <strong>creatividad</strong>, <strong>buen humor</strong>, <strong>conexión</strong> y <strong>alivio del estrés</strong> a través de la risa y el juego. Incluye prácticas y dinámicas de relajación, observación consciente y aprendizaje vivencial. Un espacio para ejercitar el liderazgo personal, el autoconocimiento y un cambio vital que transformará tu relación con el estrés diario, garantizando tu bienestar integral.
+
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
